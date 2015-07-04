@@ -8,7 +8,7 @@ OperadorTan ::~OperadorTan() {
 }
 
 void OperadorTan::imprimir(ostream & out) {
-	out << "tan" << endl;
+	out << "t" << endl;
 }
 
 Elemento * OperadorTan::operar(Elemento * a, Elemento * b) {

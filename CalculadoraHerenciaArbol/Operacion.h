@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include <string>
 #include "Elemento.h"
 #include "Operando.h"
 #include "Operador.h"
@@ -30,6 +31,8 @@ private:
 	virtual void imprimir(ostream&);
 	void eliminarEspaciosEnBlanco();
 	void eliminarParentesisInnecesarios(string &);
+	void reemplazar(string, string);
+	void reemplazarOperadores();
 	int indiceMenorPrecedencia(string);
 	Elemento * procesarStringHijo(string);
 

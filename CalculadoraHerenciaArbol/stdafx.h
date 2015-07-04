@@ -16,3 +16,4 @@
 #include <fstream>
 #include <math.h>
 #include <cmath>
+#include "Lista.h"

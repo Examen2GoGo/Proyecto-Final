@@ -8,7 +8,7 @@ OperadorLn::~OperadorLn() {
 }
 
 void OperadorLn::imprimir(ostream & out) {
-	out << "tan" << endl;
+	out << "L" << endl;
 }
 
 Elemento * OperadorLn::operar(Elemento * a, Elemento * b) {

@@ -9,7 +9,7 @@ OperadorSen ::~OperadorSen () {
 }
 
 void OperadorSen ::imprimir(ostream & out) {
-	out << "sen" << endl;
+	out << "s" << endl;
 }
 
 Elemento * OperadorSen ::operar(Elemento * a, Elemento * b) {

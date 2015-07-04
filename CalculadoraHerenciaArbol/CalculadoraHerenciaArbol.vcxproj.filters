@@ -75,10 +75,10 @@
     <ClInclude Include="OperadorFuncion.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="OperadorCos.h">
+    <ClInclude Include="Nodo.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="Nodo.h">
+    <ClInclude Include="OperadorCos.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,13 +134,13 @@
     <ClCompile Include="OperadorElevacion.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="OperacionCos.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="OperadorTan.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="OperadorFuncion.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorCos.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>

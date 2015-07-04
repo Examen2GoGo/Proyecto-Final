@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Elemento.h"
+#include "stdafx.h"
 #include "Operacion.h"
 
 using namespace std;

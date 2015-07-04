@@ -2,10 +2,11 @@
 #include "stdafx.h"
 #include "Operacion.h"
 
-const char Operacion::OPERADORES[Operacion::NUM_OPERADORES] = { '+', '-', '/', '*', 'sin', 'cos', 'tan', 'log', '^', 'FUNC' };
+const char Operacion::OPERADORES[Operacion::NUM_OPERADORES] = { '+', '-', '/', '*', '^', 'F', 's', 'c', 't', 'l' };
 
 Operacion::Operacion(string operacion) {
 	this->operacion = operacion;
+	reemplazarOperadores();
 	eliminarEspaciosEnBlanco();
 	eliminarParentesisInnecesarios(this->operacion);
 }
@@ -21,23 +22,22 @@ Elemento * Operacion::descomponer() {
 	if (indice == -1) {
 		resultado = new Operando(stod(operacion));
 	} else {
-		//hacer diagrama con una operacion para entender como descomponrlay que elemento crear
-		//Agregar los nuevos operadores
+	    //Agregar los nuevos operadores
 		string izq = operacion.substr(0, indice);
 		string cen = operacion.substr(indice, 1);
 		string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
 
 		switch (cen[0]) {
-		case 'sin':
+		case 's':
 			resultado = new OperadorSen();
 			break;
-		case 'cos':
+		case 'c':
 			resultado = new OperadorCos();
 			break;
-		case 'tan':
+		case 't':
 			resultado = new OperadorTan();
 			break;
-		case 'log':
+		case 'l':
 			resultado = new OperadorLn();
 			break;
 		case '+':
@@ -55,7 +55,7 @@ Elemento * Operacion::descomponer() {
 		case '^':
 			resultado = new OperadorElevacion();
 			break;
-		case 'FUNC':
+		case 'F':
 			resultado = new OperadorFuncion();
 			break;
 		default:
@@ -63,8 +63,8 @@ Elemento * Operacion::descomponer() {
 			break;
 		}
 
-		resultado->setHijoIzquierdo(procesarStringHijo(izq));
-		resultado->setHijoDerecho(procesarStringHijo(der));
+		resultado->setHijo1(procesarStringHijo(izq));
+		resultado->setHijo2(procesarStringHijo(der));
 	}
 	return resultado;
 }
@@ -149,4 +149,25 @@ void Operacion::imprimir(ostream & out) {
 
 Elemento * Operacion::clonar() {
 	return new Operacion(this->operacion);
+}
+
+
+void Operacion::reemplazar(string inicial, string cambio){
+		if (inicial.empty())
+			return;
+		size_t start_pos = 0;
+		while ((start_pos = operacion.find(inicial, start_pos)) != std::string::npos) {
+			operacion.replace(start_pos, inicial.length(), cambio);
+			//start_pos += cambio.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+		}
+	}
+
+void Operacion::reemplazarOperadores(){
+	reemplazar( "sen", "s");
+	reemplazar("cos", "c");
+	reemplazar("tan", "t");
+	reemplazar("log", "l");
+	reemplazar("FUNC", "F");
+	
+
 }

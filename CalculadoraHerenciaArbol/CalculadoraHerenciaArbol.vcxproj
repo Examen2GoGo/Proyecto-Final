@@ -81,9 +81,9 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Operacion.h" />
-    <ClInclude Include="OperadorCos.h" />
     <ClInclude Include="Operador.h" />
     <ClInclude Include="OperadorBinario.h" />
+    <ClInclude Include="OperadorCos.h" />
     <ClInclude Include="OperadorDivision.h" />
     <ClInclude Include="OperadorElevacion.h" />
     <ClInclude Include="OperadorFuncion.h" />
@@ -105,7 +105,7 @@
     <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Operacion.cpp" />
-    <ClCompile Include="OperacionCos.cpp" />
+    <ClCompile Include="OperadorCos.cpp" />
     <ClCompile Include="OperadorBinario.cpp" />
     <ClCompile Include="OperadorDivision.cpp" />
     <ClCompile Include="OperadorElevacion.cpp" />

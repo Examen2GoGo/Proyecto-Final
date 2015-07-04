@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "OperacionCos.h"
+#include "OperadorCos.h"
 
 
 OperadorCos::OperadorCos() {
@@ -9,7 +9,7 @@ OperadorCos::~OperadorCos() {
 }
 
 void OperadorCos::imprimir(ostream & out) {
-	out << "cos" << endl;
+	out << "c" << endl;
 }
 
 Elemento * OperadorCos::operar(Elemento * a, Elemento * b) {

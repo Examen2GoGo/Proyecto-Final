@@ -8,14 +8,13 @@ OperadorFuncion::~OperadorFuncion() {
 }
 
 void OperadorFuncion::imprimir(ostream & out) {
-	out << "FUNC" << endl;
+	out << "F" << endl;
 }
 
-Elemento * OperadorFuncion::operar(Elemento * a, Elemento * b,Elemento *c) {
+Elemento * OperadorFuncion::operar(Elemento * a, Elemento * b) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
-	Operando * otrofunc = dynamic_cast<Operando *>(c);
-	return new Operando(izq->getValor() + der->getValor()* otrofunc->getValor());
+	return new Operando(izq->getValor() / der->getValor());
 }
 
 Elemento * OperadorFuncion::clonar() {
