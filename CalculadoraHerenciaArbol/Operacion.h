@@ -8,13 +8,19 @@
 #include "OperadorResta.h"
 #include "OperadorDivision.h"
 #include "OperadorMultiplicacion.h"
+#include "OperadorSen.h"
+#include "OperadorCos.h"
+#include "OperadorTan.h"
+#include "OperadorLn.h"
+#include "OperadorElevacion.h"
+#include "OperadorFuncion.h"
 
 using namespace std;
 
 class Operacion : public Elemento {
 private:
 
-	static const int NUM_OPERADORES = 4;
+	static const int NUM_OPERADORES = 11;
 	static const char OPERADORES[NUM_OPERADORES];
 	static const char LEFT_PARENTHESIS = '(';
 	static const char RIGHT_PARENTHESIS = ')';

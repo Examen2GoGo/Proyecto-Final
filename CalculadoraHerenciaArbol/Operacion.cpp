@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Operacion.h"
 
-const char Operacion::OPERADORES[Operacion::NUM_OPERADORES] = {'+', '-', '/', '*'};
+const char Operacion::OPERADORES[Operacion::NUM_OPERADORES] = { '+', '-', '/', '*', 'sin', 'cos', 'tan', 'log', '^', 'FUNC' };
 
 Operacion::Operacion(string operacion) {
 	this->operacion = operacion;
@@ -21,12 +21,25 @@ Elemento * Operacion::descomponer() {
 	if (indice == -1) {
 		resultado = new Operando(stod(operacion));
 	} else {
-
+		//hacer diagrama con una operacion para entender como descomponrlay que elemento crear
+		//Agregar los nuevos operadores
 		string izq = operacion.substr(0, indice);
 		string cen = operacion.substr(indice, 1);
 		string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
 
 		switch (cen[0]) {
+		case 'sin':
+			resultado = new OperadorSen();
+			break;
+		case 'cos':
+			resultado = new OperadorCos();
+			break;
+		case 'tan':
+			resultado = new OperadorTan();
+			break;
+		case 'log':
+			resultado = new OperadorLn();
+			break;
 		case '+':
 			resultado = new OperadorSuma();
 			break;
@@ -38,6 +51,12 @@ Elemento * Operacion::descomponer() {
 			break;
 		case'*':
 			resultado = new OperadorMultiplicacion();
+			break;
+		case '^':
+			resultado = new OperadorElevacion();
+			break;
+		case 'FUNC':
+			resultado = new OperadorFuncion();
 			break;
 		default:
 			resultado = NULL;

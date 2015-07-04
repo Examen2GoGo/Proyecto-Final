@@ -1,20 +1,18 @@
-
 #pragma once
 
-#include "OperadorBinario.h"
+#include "OperadorUnario.h"
 #include "Operando.h"
 
-class OperadorMultiplicacion : public OperadorBinario {
+class OperadorTan : public OperadorUnario {
 
 protected:
 	virtual void imprimir(ostream&);
 
 public:
-	OperadorMultiplicacion();
-	~OperadorMultiplicacion();
+	OperadorTan();
+	~OperadorTan();
 
 	virtual Elemento * operar(Elemento *, Elemento *);
 
 	virtual Elemento * clonar();
 };
-
