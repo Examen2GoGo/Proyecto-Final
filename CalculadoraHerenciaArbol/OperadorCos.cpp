@@ -12,7 +12,7 @@ void OperadorCos::imprimir(ostream & out) {
 	out << "c" << endl;
 }
 
-Elemento * OperadorCos::operar(Elemento * a, Elemento * b) {
+Elemento * OperadorCos::operar(Lista*) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(cos(izq->getValor()));

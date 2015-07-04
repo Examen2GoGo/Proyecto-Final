@@ -26,6 +26,14 @@ Elemento *& Elemento::getHijoDerecho() {
 	return hijoDerecho;
 }
 
+Elemento *& Elemento::getHijo1() {
+	return hijo1;
+}
+
+Elemento *& Elemento::getHijo2() {
+	return hijo2;
+}
+
 void Elemento::setProximo(Elemento * proximo) {
 	this->proximo = proximo;
 }

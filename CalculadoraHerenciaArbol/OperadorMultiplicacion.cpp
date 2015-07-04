@@ -12,7 +12,7 @@ void OperadorMultiplicacion::imprimir(ostream & out) {
 	out << '*' << endl;
 }
 
-Elemento * OperadorMultiplicacion::operar(Elemento * a, Elemento * b) {
+Elemento * OperadorMultiplicacion::operar(Lista*) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(izq->getValor() * der->getValor());

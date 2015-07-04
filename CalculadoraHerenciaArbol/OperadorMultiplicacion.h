@@ -13,7 +13,7 @@ public:
 	OperadorMultiplicacion();
 	~OperadorMultiplicacion();
 
-	virtual Elemento * operar(Elemento *, Elemento *);
+	virtual Elemento * operar(Lista*);
 
 	virtual Elemento * clonar();
 };

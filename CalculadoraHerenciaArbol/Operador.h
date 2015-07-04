@@ -12,7 +12,7 @@ protected:
 	virtual void imprimir(ostream&) = 0;
 
 public:
-	virtual Elemento * operar(Elemento *, Elemento *) = 0;
+	virtual Elemento * operar(Lista *) = 0;
 
 	virtual Elemento * clonar() = 0;
 };

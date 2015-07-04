@@ -21,9 +21,8 @@ Elemento * Operacion::descomponer() {
 
 	if (indice == -1) {
 		resultado = new Operando(stod(operacion));
-	} else {
-	    //Agregar los nuevos operadores
-		string izq = operacion.substr(0, indice);
+	}
+	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
 		string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
 
@@ -40,6 +39,21 @@ Elemento * Operacion::descomponer() {
 		case 'l':
 			resultado = new OperadorLn();
 			break;
+		case 'F':
+			resultado = new OperadorFuncion();
+			break;
+		default:
+			resultado = NULL;
+			break;
+		}
+		resultado->setHijo2(procesarStringHijo(der));
+		return resultado;
+	}else{
+			string izq = operacion.substr(0, indice);
+			string cen = operacion.substr(indice, 1);
+			string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
+		
+		switch (cen[0]) {
 		case '+':
 			resultado = new OperadorSuma();
 			break;
@@ -55,9 +69,9 @@ Elemento * Operacion::descomponer() {
 		case '^':
 			resultado = new OperadorElevacion();
 			break;
-		case 'F':
-			resultado = new OperadorFuncion();
-			break;
+		//case 'F':
+			//resultado = new OperadorFuncion();
+			//break;
 		default:
 			resultado = NULL;
 			break;

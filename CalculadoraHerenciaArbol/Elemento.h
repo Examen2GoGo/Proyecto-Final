@@ -23,6 +23,8 @@ public:
 	Elemento * getProximo();
 	Elemento *& getHijoIzquierdo();
 	Elemento *& getHijoDerecho();
+	Elemento *& getHijo1();
+	Elemento *& getHijo2();
 
 	void setProximo(Elemento *);
 	void setHijoIzquierdo(Elemento *);

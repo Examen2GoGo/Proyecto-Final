@@ -32,13 +32,13 @@ void Arbol::descomponerRec(Elemento *& actual) {
 		actual = operacion->descomponer();
 		delete tmp;
 
-		Elemento * izq = actual->getHijoIzquierdo();
-		Elemento * der = actual->getHijoDerecho();
+		Elemento * izq = actual->getHijo1();
+		Elemento * der = actual->getHijo2();
 		if (izq != NULL) {
-			descomponerRec(actual->getHijoIzquierdo());
+			descomponerRec(actual->getHijo1());
 		}
 		if (der != NULL) {
-			descomponerRec(actual->getHijoDerecho());
+			descomponerRec(actual->getHijo2());
 		}
 	}
 }
@@ -49,17 +49,17 @@ Elemento * Arbol::solucionar() {
 }
 
 void Arbol::solucionarRec(Elemento *& actual) {
-	Elemento * izq = actual->getHijoIzquierdo();
-	Elemento * der = actual->getHijoDerecho();
+	Elemento * izq = actual->getHijo1();
+	Elemento * der = actual->getHijo2();
 	Operador * op = dynamic_cast<Operador*>(actual);
 	if (op != NULL) {
 		if (izq != NULL) {
-			solucionarRec(actual->getHijoIzquierdo());
+			solucionarRec(actual->getHijo1());
 		}
 		if (der != NULL) {
-			solucionarRec(actual->getHijoDerecho());
+			solucionarRec(actual->getHijo2());
 		}
-		Elemento * solucion = op->operar(actual->getHijoIzquierdo(), actual->getHijoDerecho());
+		Elemento * solucion = op->operar(Elemento.hijos);
 		delete actual;
 		actual = solucion;
 	}
