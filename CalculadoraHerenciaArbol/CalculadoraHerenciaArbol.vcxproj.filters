@@ -51,6 +51,36 @@
     <ClInclude Include="OperadorDivision.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="OperadorBinario.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorUnario.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorTernario.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorSen.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorLn.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorElevacion.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorTan.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorFuncion.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorCos.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,6 +114,33 @@
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="OperadorDivision.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorBinario.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorUnario.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorTernario.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorSen.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorLn.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorElevacion.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperacionCos.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorTan.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorFuncion.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
