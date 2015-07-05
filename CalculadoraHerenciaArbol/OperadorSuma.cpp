@@ -12,11 +12,11 @@ void OperadorSuma::imprimir(ostream & out) {
 	out << '+' << endl;
 }
 
-Elemento * OperadorSuma::operar(Lista* valores) {
+/*Elemento * OperadorSuma::operar(Lista* valores) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(izq->getValor() + der->getValor());
-}
+}*/
 
 Elemento * OperadorSuma::clonar() {
 	return new OperadorSuma();

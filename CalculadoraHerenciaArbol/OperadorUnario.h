@@ -12,7 +12,7 @@ public:
 	OperadorUnario();
 	~OperadorUnario();
 
-	virtual Elemento * operar(Lista*) = 0;
+	//virtual Elemento * operar(Lista*) = 0;
 
 	virtual Elemento * clonar() = 0;
 };

@@ -14,13 +14,13 @@ Operacion::Operacion(string operacion) {
 Operacion::~Operacion() {
 }
 
-Elemento * Operacion::descomponer() {
+Nodo * Operacion::descomponer() {
 
-	Elemento * resultado;
+	Nodo * resultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
-		resultado = new Operando(stod(operacion));
+		resultado = new Nodo(new Operando(stod(operacion)));
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
@@ -28,25 +28,25 @@ Elemento * Operacion::descomponer() {
 
 		switch (cen[0]) {
 		case 's':
-			resultado = new OperadorSen();
+			resultado = new Nodo(new OperadorSen());
 			break;
 		case 'c':
-			resultado = new OperadorCos();
+			resultado = new Nodo(new OperadorCos());
 			break;
 		case 't':
-			resultado = new OperadorTan();
+			resultado = new Nodo(new OperadorTan());
 			break;
 		case 'l':
-			resultado = new OperadorLn();
+			resultado = new Nodo(new OperadorLn());
 			break;
 		case 'F':
-			resultado = new OperadorFuncion();
+			resultado = new Nodo(new OperadorFuncion());
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
-		resultado->setHijo2(procesarStringHijo(der));
+		resultado->setHijo1(procesarStringHijo(der));
 		return resultado;
 	}else{
 			string izq = operacion.substr(0, indice);
@@ -55,30 +55,30 @@ Elemento * Operacion::descomponer() {
 		
 		switch (cen[0]) {
 		case '+':
-			resultado = new OperadorSuma();
+			resultado = new Nodo(new OperadorSuma());
 			break;
 		case '-':
-			resultado = new OperadorResta();
+			resultado = new Nodo(new OperadorResta());
 			break;
 		case '/':
-			resultado = new OperadorDivision();
+			resultado = new Nodo(new OperadorDivision());
 			break;
 		case'*':
-			resultado = new OperadorMultiplicacion();
+			resultado = new Nodo(new OperadorMultiplicacion());
 			break;
 		case '^':
-			resultado = new OperadorElevacion();
+			resultado = new Nodo(new OperadorElevacion());
 			break;
 		//case 'F':
-			//resultado = new OperadorFuncion();
+			//resultado = new Nodo(new OperadorFuncion());
 			//break;
 		default:
 			resultado = NULL;
 			break;
 		}
 
-		resultado->setHijo1(procesarStringHijo(izq));
-		resultado->setHijo2(procesarStringHijo(der));
+		resultado->setHijo0(procesarStringHijo(izq));
+		resultado->setHijo1(procesarStringHijo(der));
 	}
 	return resultado;
 }

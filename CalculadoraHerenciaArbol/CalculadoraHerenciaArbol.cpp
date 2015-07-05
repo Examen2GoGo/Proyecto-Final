@@ -20,7 +20,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		Elemento * operacionActual = operaciones.getCopy(i);
 
-		Arbol arbol(operacionActual->clonar());
+		Arbol arbol(new Nodo(operacionActual->clonar()));
 		arbol.descomponer();
 		Operando * resultado = dynamic_cast<Operando *>(arbol.solucionar());
 		archivoResultados << *resultado << endl;

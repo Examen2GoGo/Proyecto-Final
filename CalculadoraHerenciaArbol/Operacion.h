@@ -2,6 +2,7 @@
 #pragma once
 
 #include <string>
+#include "Nodo.h"
 #include "Elemento.h"
 #include "Operando.h"
 #include "Operador.h"
@@ -40,7 +41,7 @@ public:
 	Operacion(string);
 	virtual ~Operacion();
 
-	Elemento * descomponer();
+	Nodo * descomponer();
 	string getValor();
 
 	virtual Elemento * clonar();

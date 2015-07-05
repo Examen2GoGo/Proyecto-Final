@@ -11,11 +11,11 @@ void OperadorTan::imprimir(ostream & out) {
 	out << "t" << endl;
 }
 
-Elemento * OperadorTan::operar(Lista* valores) {
+/*Elemento * OperadorTan::operar(Lista* valores) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(tan(izq->getValor()));
-}
+}*/
 
 
 Elemento * OperadorTan::clonar() {

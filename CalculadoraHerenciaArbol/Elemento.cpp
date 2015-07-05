@@ -25,24 +25,8 @@ Elemento *& Elemento::getHijoDerecho() {
 	return hijoDerecho;
 }
 
-Elemento *& Elemento::getHijo1() {
-	return hijo1;
-}
-
-Elemento *& Elemento::getHijo2() {
-	return hijo2;
-}
-
 void Elemento::setProximo(Elemento * proximo) {
 	this->proximo = proximo;
-}
-
-void Elemento::setHijo1(Elemento * hijo) {
-	this->hijo1 = hijo;
-}
-
-void Elemento::setHijo2(Elemento * hijo) {
-	this->hijo2 = hijo;
 }
 
 void Elemento::setHijoIzquierdo(Elemento * hijoIzquierdo) {

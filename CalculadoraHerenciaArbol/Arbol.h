@@ -8,16 +8,17 @@
 #include "Lista.h"
 
 class Arbol {
+	
 private:
 	Nodo * raiz;
 	
-	void destruirRec(Elemento *);
-	void solucionarRec(Elemento *);
-	void descomponerRec(Elemento *);
+	void destruirRec(Nodo *);
+	void solucionarRec(Nodo *);
+	void descomponerRec(Nodo *);
 	
 
 public:
-	Arbol(Elemento *);
+	Arbol(Nodo *);
 	~Arbol();
 	Lista * hijos;
 

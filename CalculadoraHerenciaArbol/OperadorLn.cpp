@@ -11,11 +11,11 @@ void OperadorLn::imprimir(ostream & out) {
 	out << "L" << endl;
 }
 
-Elemento * OperadorLn::operar(Lista* valores) {
+/*Elemento * OperadorLn::operar(Lista* valores) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(log(izq->getValor()));
-}
+}*/
 
 
 Elemento * OperadorLn::clonar() {

@@ -13,7 +13,7 @@ public:
 	OperadorResta();
 	~OperadorResta();
 
-	virtual Elemento * operar(Lista*);
+	//virtual Elemento * operar(Lista*);
 
 	virtual Elemento * clonar();
 };

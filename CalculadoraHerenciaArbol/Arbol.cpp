@@ -3,67 +3,67 @@
 #include "Arbol.h"
 
 
-Arbol::Arbol(Elemento * nodo) {
-	this->raiz = new Nodo(nodo);
+Arbol::Arbol(Nodo * nodo) {
+	this->raiz = nodo;
 	hijos = NULL;
 }
 
 Arbol::~Arbol() {
-	destruirRec(raiz->obtenerDatos());
+	destruirRec(raiz);
 }
 
-void Arbol::destruirRec(Elemento * actual) {
-	if (actual->getHijoIzquierdo() != NULL) {
-		destruirRec(actual->getHijoIzquierdo());
+void Arbol::destruirRec(Nodo * actual) {
+	if (actual->getHijo0() != NULL) {
+		destruirRec(actual->getHijo0());
 	}
-	if (actual->getHijoDerecho() != NULL) {
-		destruirRec(actual->getHijoDerecho());
+	if (actual->getHijo1() != NULL) {
+		destruirRec(actual->getHijo1());
 	}
 	delete actual;
 }
 
 void Arbol::descomponer() {
-	descomponerRec(raiz->obtenerDatos());
+	descomponerRec(raiz);
 }
 
-void Arbol::descomponerRec(Elemento * actual) {
-	Operacion * operacion = dynamic_cast<Operacion *>(actual);
+void Arbol::descomponerRec(Nodo * actual) {
+	Operacion * operacion = dynamic_cast<Operacion *>(actual->obtenerDatos());
 	if (operacion != NULL) {
 
-		Elemento * tmp = actual;
+		Nodo * tmp = actual;
 		actual = operacion->descomponer();
 		delete tmp;
-		Elemento * izq = actual->getHijo1();
-		Elemento * der = actual->getHijo2();
+		Elemento * izq = actual->getHijo0()->obtenerDatos();
+		Elemento * der = actual->getHijo1()->obtenerDatos();
 		hijos->insertar(izq);
 		hijos->insertar(der);
 		if (izq != NULL) {
-			descomponerRec(actual->getHijo1());
+			descomponerRec(actual->getHijo0());
 		}
 		if (der != NULL) {
-			descomponerRec(actual->getHijo2());
+			descomponerRec(actual->getHijo1());
 		}
 	}
 }
 
 Elemento * Arbol::solucionar() {
-	solucionarRec(raiz->obtenerDatos());
+	solucionarRec(raiz);
 	return raiz->obtenerDatos();
 }
 
-void Arbol::solucionarRec(Elemento * actual) {
-	Elemento * izq = actual->getHijo1();
-	Elemento * der = actual->getHijo2();
-	Operador * op = dynamic_cast<Operador*>(actual);
+void Arbol::solucionarRec(Nodo * actual) {
+	Nodo * h0 = actual->getHijo0();
+	Nodo * h1 = actual->getHijo0();
+	Operador * op = dynamic_cast<Operador*>(actual->obtenerDatos());
 	if (op != NULL) {
-		if (izq != NULL) {
-			solucionarRec(actual->getHijo1());
+		if (h0 != NULL) {
+			solucionarRec(actual->getHijo0());
 		}
-		if (der != NULL) {
-			solucionarRec(actual->getHijo2());
+		if (h1 != NULL) {
+			solucionarRec(actual->getHijo1());
 		}
 		Elemento * solucion = op->operar(hijos);
 		delete actual;
-		actual = solucion;
+		actual = new Nodo(solucion);
 	}
 }
