@@ -13,8 +13,9 @@ void OperadorSen ::imprimir(ostream & out) {
 }
 
 Elemento * OperadorSen ::operar(Lista* valores) {
+	Elemento * a = valores->primerElemento()->obtenerDatos();
 	Operando * izq = dynamic_cast<Operando *>(a);
-	Operando * der = dynamic_cast<Operando *>(b);
+	//Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(sin(izq->getValor()));
 }
 

@@ -12,8 +12,9 @@ void OperadorTan::imprimir(ostream & out) {
 }
 
 Elemento * OperadorTan::operar(Lista* valores) {
+	Elemento * a = valores->primerElemento()->obtenerDatos();
 	Operando * izq = dynamic_cast<Operando *>(a);
-	Operando * der = dynamic_cast<Operando *>(b);
+	//Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(tan(izq->getValor()));
 }
 

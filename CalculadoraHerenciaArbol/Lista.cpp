@@ -58,6 +58,11 @@ Nodo* Lista::obtenerNuevoNodo(Elemento * nuevoElemento)
 	return new Nodo(nuevoElemento);
 }
 
+Nodo * Lista::primerElemento(){
+return cabeza;
+	
+} 
+
 ostream& operator<<(ostream & out, Lista & lista) {
 	Nodo * actual = lista.cabeza;
 	int c = 0;

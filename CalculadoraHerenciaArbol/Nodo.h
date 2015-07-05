@@ -47,5 +47,10 @@ public:
 		return hijo1;
 	}
 
+	Nodo * Nodo::siguienteElemento(){
+		return siguiente;
+
+	}
+
 };
 
