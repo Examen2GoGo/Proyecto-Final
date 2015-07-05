@@ -2,9 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "Lista.h"
-#include "Arbol.h"
-#include "Operando.h"
 
 int _tmain(int argc, _TCHAR* argv[]) {
 

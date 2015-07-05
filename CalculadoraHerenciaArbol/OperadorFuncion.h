@@ -1,7 +1,7 @@
 #pragma once
-
-#include "OperadorTernario.h"
-#include "Operando.h"
+#include "stdafx.h"
+//#include "OperadorTernario.h"
+//#include "Operando.h"
 
 class OperadorFuncion : public OperadorTernario {
 
@@ -12,7 +12,7 @@ public:
 	OperadorFuncion();
 	~OperadorFuncion();
 
-	//virtual Elemento * operar(Lista*);
+	virtual Elemento * operar(Lista*);
 
 	virtual Elemento * clonar();
 };

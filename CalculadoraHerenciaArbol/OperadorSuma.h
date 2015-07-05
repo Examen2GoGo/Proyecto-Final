@@ -1,8 +1,8 @@
 
 #pragma once
-
-#include "OperadorBinario.h"
-#include "Operando.h"
+#include "stdafx.h"
+//#include "OperadorBinario.h"
+//#include "Operando.h"
 
 class OperadorSuma : public OperadorBinario {
 
@@ -13,7 +13,7 @@ public:
 	OperadorSuma();
 	~OperadorSuma();
 
-	//virtual Elemento * operar(Lista*);
+	virtual Elemento * operar(Lista*);
 
 	virtual Elemento * clonar();
 };

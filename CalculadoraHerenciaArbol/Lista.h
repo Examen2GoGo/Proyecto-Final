@@ -2,7 +2,7 @@
 #pragma once
 
 #include "stdafx.h"
-#include "Operacion.h"
+//#include "Operacion.h"
 #include "Nodo.h"
 
 using namespace std;
@@ -22,6 +22,7 @@ public:
 	~Lista();
 
 	void insertar(Elemento *);
+	Nodo * primerElemento();
 	int getCantidadElementos();
 	Elemento * getCopy(int);
 };

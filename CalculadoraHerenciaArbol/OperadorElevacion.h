@@ -1,7 +1,7 @@
 #pragma once
-
-#include "OperadorBinario.h"
-#include "Operando.h"
+#include "stdafx.h"
+//#include "OperadorBinario.h"
+//#include "Operando.h"
 
 class OperadorElevacion : public OperadorBinario {
 
@@ -12,7 +12,7 @@ public:
 	OperadorElevacion();
 	~OperadorElevacion();
 
-	//virtual Elemento * operar(Lista*);
+	virtual Elemento * operar(Lista*);
 
 	virtual Elemento * clonar();
 };

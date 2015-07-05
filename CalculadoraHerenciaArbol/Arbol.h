@@ -1,11 +1,11 @@
 
 #pragma once
 
-#include "Elemento.h"
-#include "Operador.h"
-#include "Operacion.h"
-#include "Nodo.h"
-#include "Lista.h"
+#include "stdafx.h"
+//#include "Operador.h"
+//#include "Operacion.h"
+// "Nodo.h"
+//#include "Lista.h"
 
 class Arbol {
 	

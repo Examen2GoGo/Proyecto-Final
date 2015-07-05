@@ -1,6 +1,6 @@
-
 #include "stdafx.h"
 #include "Lista.h"
+
 
 Lista::Lista() {
 	this->cabeza = NULL;

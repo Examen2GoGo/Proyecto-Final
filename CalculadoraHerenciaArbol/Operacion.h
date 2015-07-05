@@ -1,7 +1,7 @@
 
 #pragma once
-
-#include <string>
+#include "stdafx.h"
+/*#include <string>
 #include "Nodo.h"
 #include "Elemento.h"
 #include "Operando.h"
@@ -15,7 +15,7 @@
 #include "OperadorTan.h"
 #include "OperadorLn.h"
 #include "OperadorElevacion.h"
-#include "OperadorFuncion.h"
+#include "OperadorFuncion.h"*/
 
 using namespace std;
 

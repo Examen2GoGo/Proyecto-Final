@@ -12,11 +12,12 @@ void OperadorCos::imprimir(ostream & out) {
 	out << "c" << endl;
 }
 
-/*Elemento * OperadorCos::operar(Lista*) {
+Elemento * OperadorCos::operar(Lista* valores) {
+	Elemento * a = hijos.primerElemento()->obtenerDatos;
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(cos(izq->getValor()));
-}*/
+}
 
 
 Elemento * OperadorCos::clonar() {
