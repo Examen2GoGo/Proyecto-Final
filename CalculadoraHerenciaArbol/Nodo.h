@@ -1,28 +1,28 @@
 #pragma once
+#include "Elemento.h"
 
-template<class T>
 class Nodo {
-
-	template <class T>
-	friend class ArbolBinario;
-
-	template <class T>
-	friend class Iterador;
+	friend class Arbol;
+	//friend class Iterador;
 
 private:
-	T actual;
-	Nodo<T> *padre, *hIzq, *hDer;
+	Elemento * actual;
+
+	
 
 public:
-	Nodo(T elemento) {
+	Nodo * siguiente;
+	Nodo(Elemento * elemento) {
 		this->actual = elemento;
-		padre = NULL;
-		hIzq = NULL;
-		hDer = NULL;
+		siguiente = 0;
 	}
 
 	~Nodo() {
 	}
 
+	Elemento * obtenerDatos()
+	{
+		return actual;
+	}
 };
 

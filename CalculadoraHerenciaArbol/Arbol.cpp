@@ -2,12 +2,14 @@
 #include "stdafx.h"
 #include "Arbol.h"
 
+
 Arbol::Arbol(Elemento * nodo) {
-	this->raiz = nodo;
+	this->raiz = new Nodo(nodo);
+	hijos = NULL;
 }
 
 Arbol::~Arbol() {
-	destruirRec(raiz);
+	destruirRec(raiz->obtenerDatos());
 }
 
 void Arbol::destruirRec(Elemento * actual) {
@@ -21,19 +23,20 @@ void Arbol::destruirRec(Elemento * actual) {
 }
 
 void Arbol::descomponer() {
-	descomponerRec(raiz);
+	descomponerRec(raiz->obtenerDatos());
 }
 
-void Arbol::descomponerRec(Elemento *& actual) {
+void Arbol::descomponerRec(Elemento * actual) {
 	Operacion * operacion = dynamic_cast<Operacion *>(actual);
 	if (operacion != NULL) {
 
 		Elemento * tmp = actual;
 		actual = operacion->descomponer();
 		delete tmp;
-
 		Elemento * izq = actual->getHijo1();
 		Elemento * der = actual->getHijo2();
+		hijos->insertar(izq);
+		hijos->insertar(der);
 		if (izq != NULL) {
 			descomponerRec(actual->getHijo1());
 		}
@@ -44,11 +47,11 @@ void Arbol::descomponerRec(Elemento *& actual) {
 }
 
 Elemento * Arbol::solucionar() {
-	solucionarRec(raiz);
-	return raiz;
+	solucionarRec(raiz->obtenerDatos());
+	return raiz->obtenerDatos();
 }
 
-void Arbol::solucionarRec(Elemento *& actual) {
+void Arbol::solucionarRec(Elemento * actual) {
 	Elemento * izq = actual->getHijo1();
 	Elemento * der = actual->getHijo2();
 	Operador * op = dynamic_cast<Operador*>(actual);
@@ -59,7 +62,7 @@ void Arbol::solucionarRec(Elemento *& actual) {
 		if (der != NULL) {
 			solucionarRec(actual->getHijo2());
 		}
-		Elemento * solucion = op->operar(Elemento.hijos);
+		Elemento * solucion = op->operar(hijos);
 		delete actual;
 		actual = solucion;
 	}

@@ -11,7 +11,7 @@ void OperadorFuncion::imprimir(ostream & out) {
 	out << "F" << endl;
 }
 
-Elemento * OperadorFuncion::operar(Lista *) {
+Elemento * OperadorFuncion::operar(Lista * valores) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(izq->getValor() / der->getValor());

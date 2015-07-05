@@ -18,7 +18,6 @@ public:
 
 	Elemento();
 	virtual ~Elemento();
-	Lista * hijos;
 
 	Elemento * getProximo();
 	Elemento *& getHijoIzquierdo();

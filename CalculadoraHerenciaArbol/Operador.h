@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "Elemento.h"
+#include "Lista.h"
 
 using namespace std;
 

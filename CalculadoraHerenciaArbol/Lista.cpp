@@ -21,21 +21,21 @@ Lista::Lista(istream & in) : Lista() {
 }
 
 Lista::~Lista() {
-	Elemento * actual = cabeza;
+	Nodo * actual = cabeza;
 	while (actual != NULL) {
-		Elemento * tmp = actual;
-		actual = actual->getProximo();
+		Nodo * tmp = actual;
+		actual = actual->siguiente;
 		delete tmp;
 	}
 }
 
 void Lista::insertar(Elemento * nuevoElemento) {
+	Nodo *nuevoPtr = obtenerNuevoNodo(nuevoElemento);
 	if (cabeza == NULL) {
-		this->cabeza = nuevoElemento;
-		this->cola = nuevoElemento;
+		cabeza = cola = nuevoPtr;
 	} else {
-		this->cola->setProximo(nuevoElemento);
-		this->cola = nuevoElemento;
+		cola->siguiente = nuevoPtr; 
+		cola = nuevoPtr; 
 	}
 	cantidadElementos++;
 }
@@ -45,20 +45,25 @@ int Lista::getCantidadElementos() {
 }
 
 Elemento * Lista::getCopy(int i) {
-	Elemento * actual = cabeza;
+	Nodo * actual = cabeza;
 	while (actual != NULL && i != 0) {
-		actual = actual->getProximo();
+		actual = actual->siguiente;
 		i--;
 	}
-	return actual->clonar();
+	return actual->obtenerDatos()->clonar();
+}
+
+Nodo* Lista::obtenerNuevoNodo(Elemento * nuevoElemento)
+{
+	return new Nodo(nuevoElemento);
 }
 
 ostream& operator<<(ostream & out, Lista & lista) {
-	Elemento * actual = lista.cabeza;
+	Nodo * actual = lista.cabeza;
 	int c = 0;
 	while (actual != NULL) {
-		out << ++c << ". " << *actual << endl;
-		actual = actual->getProximo();
+		out << ++c << ". " << *actual->obtenerDatos() << endl;
+		actual = actual->siguiente;
 	}
 	return out << endl;
 }

@@ -12,7 +12,7 @@ void OperadorResta::imprimir(ostream & out) {
 	out << '-' << endl;
 }
 
-Elemento * OperadorResta::operar(Lista*) {
+Elemento * OperadorResta::operar(Lista* valores) {
 	Operando * izq = dynamic_cast<Operando *>(a);
 	Operando * der = dynamic_cast<Operando *>(b);
 	return new Operando(izq->getValor() - der->getValor());
