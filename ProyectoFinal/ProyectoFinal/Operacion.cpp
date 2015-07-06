@@ -179,7 +179,7 @@ void Operacion::reemplazarOperadores(){
 	reemplazar( "sen", "s");
 	reemplazar("cos", "c");
 	reemplazar("tan", "t");
-	reemplazar("log", "l");
+	reemplazar("ln", "l");
 	reemplazar("FUNC", "F");
 	
 

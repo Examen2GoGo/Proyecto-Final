@@ -17,7 +17,9 @@ void Arbol::destruirRec(Nodo * actual) {
 	if (actual->getHijo1() != NULL) {
 		destruirRec(actual->getHijo1());
 	}
+	actual = NULL;
 	delete actual;
+	
 }
 
 void Arbol::descomponer() {
@@ -27,7 +29,6 @@ void Arbol::descomponer() {
 void Arbol::descomponerRec(Nodo * actual) {
 	Operacion * operacion = dynamic_cast<Operacion *>(actual->obtenerDatos());
 	if (operacion != NULL) {
-
 		Nodo * tmp = actual;
 		actual = operacion->descomponer();
 		delete tmp;
@@ -41,6 +42,7 @@ void Arbol::descomponerRec(Nodo * actual) {
 		if (der != NULL) {
 			descomponerRec(actual->getHijo1());
 		}
+		raiz = actual;
 	}
 }
 
@@ -51,7 +53,8 @@ Elemento * Arbol::solucionar() {
 
 void Arbol::solucionarRec(Nodo * actual) {
 	Nodo * h0 = actual->getHijo0();
-	Nodo * h1 = actual->getHijo0();
+	Nodo * h1 = actual->getHijo1();
+	Nodo * h2 = actual->getHijo2(); 
 	Operador * op = dynamic_cast<Operador*>(actual->obtenerDatos());
 	if (op != NULL) {
 		if (h0 != NULL) {
@@ -60,8 +63,17 @@ void Arbol::solucionarRec(Nodo * actual) {
 		if (h1 != NULL) {
 			solucionarRec(actual->getHijo1());
 		}
+		if (h2 != NULL) {
+			solucionarRec(actual->getHijo2());
+		}
 		Elemento * solucion = op->operar(hijos);
 		delete actual;
 		actual = new Nodo(solucion);
+		//Aqui no se está pasando bien la solucion a la raiz
 	}
 }
+
+Nodo *Arbol::getRaiz(){
+	return raiz;
+}
+

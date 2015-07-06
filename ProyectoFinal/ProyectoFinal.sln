@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculadoraHerenciaArbol", "CalculadoraHerenciaArbol\CalculadoraHerenciaArbol.vcxproj", "{B850FCF9-C802-4D81-AE56-D70A7F1651BC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProyectoFinal", "ProyectoFinal\ProyectoFinal.vcxproj", "{953D958C-C290-4017-AEE8-7C06883F3A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B850FCF9-C802-4D81-AE56-D70A7F1651BC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B850FCF9-C802-4D81-AE56-D70A7F1651BC}.Debug|Win32.Build.0 = Debug|Win32
-		{B850FCF9-C802-4D81-AE56-D70A7F1651BC}.Release|Win32.ActiveCfg = Release|Win32
-		{B850FCF9-C802-4D81-AE56-D70A7F1651BC}.Release|Win32.Build.0 = Release|Win32
+		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Debug|Win32.Build.0 = Debug|Win32
+		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Release|Win32.ActiveCfg = Release|Win32
+		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

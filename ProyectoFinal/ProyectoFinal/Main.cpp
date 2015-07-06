@@ -9,23 +9,26 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	ofstream archivoResultados("resultados.txt");
 
 	Lista operaciones(archivoOperaciones);
-
+	Lista resultados;
 	cout << "Operaciones:\n" << operaciones << endl;
 
 	cout << "Operaciones Resueltas: " << endl;
 	for (int i = 0; i < operaciones.getCantidadElementos(); i++) {
 
-		Elemento * operacionActual = operaciones.getCopy(i);
+		Elemento * operacion = operaciones.getCopy(i);
 
-		Arbol arbol(new Nodo(operacionActual->clonar()));
+		Arbol arbol(new Nodo(operacion->clonar()));
 		arbol.descomponer();
 		Operando * resultado = dynamic_cast<Operando *>(arbol.solucionar());
 		archivoResultados << *resultado << endl;
 
-		cout << i + 1 << ". " << *operacionActual << " = " << *resultado << endl;
+		cout << i + 1 << ". " << *operacion << " = " << *resultado << endl;
 
-		delete operacionActual;
+		resultados.insertar(resultado);
+
+		delete operacion;
 	}
+	cout << "Meter en archivo: \n" << resultados << endl;
 
 	archivoOperaciones.close();
 	archivoResultados.close();

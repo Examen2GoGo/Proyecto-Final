@@ -21,5 +21,6 @@ public:
 	Arbol(Nodo *);
 	~Arbol();
 	void descomponer();
+	Nodo *getRaiz();
 	Elemento * solucionar();
 };
