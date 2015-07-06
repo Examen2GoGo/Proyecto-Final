@@ -15,6 +15,7 @@ private:
 	Nodo *cabeza, *cola;
 	int cantidadElementos;
 	Nodo * obtenerNuevoNodo(Elemento *);
+	bool estaVacia();
 
 public:
 	Lista();

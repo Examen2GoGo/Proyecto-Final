@@ -3,8 +3,8 @@
 
 
 Lista::Lista() {
-	this->cabeza = NULL;
-	this->cola = NULL;
+	this->cabeza = 0;
+	this->cola = 0;
 }
 
 Lista::Lista(istream & in) : Lista() {
@@ -30,9 +30,10 @@ Lista::~Lista() {
 }
 
 void Lista::insertar(Elemento * nuevoElemento) {
-	Nodo *nuevoPtr = obtenerNuevoNodo(nuevoElemento);
-	if (cabeza == NULL) {
-		cabeza = cola = nuevoPtr;
+	Nodo *nuevoPtr = new Nodo(nuevoElemento);
+	if (cabeza == 0) {
+		this->cabeza = nuevoPtr;
+		this->cola = nuevoPtr;
 	} else {
 		cola->siguiente = nuevoPtr; 
 		cola = nuevoPtr; 
@@ -62,6 +63,11 @@ Nodo * Lista::primerElemento(){
 return cabeza;
 	
 } 
+
+bool Lista::estaVacia()
+{
+	return cabeza == NULL;
+}
 
 ostream& operator<<(ostream & out, Lista & lista) {
 	Nodo * actual = lista.cabeza;

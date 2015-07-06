@@ -12,7 +12,7 @@ public:
 	OperadorFuncion();
 	~OperadorFuncion();
 
-	virtual Elemento * operar(Lista*);
+	virtual Elemento * operar(Lista&);
 
 	virtual Elemento * clonar();
 };

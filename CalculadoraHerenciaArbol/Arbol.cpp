@@ -4,7 +4,6 @@
 
 Arbol::Arbol(Nodo * nodo) {
 	this->raiz = nodo;
-	hijos = NULL;
 }
 
 Arbol::~Arbol() {
@@ -34,8 +33,8 @@ void Arbol::descomponerRec(Nodo * actual) {
 		delete tmp;
 		Elemento * izq = actual->getHijo0()->obtenerDatos();
 		Elemento * der = actual->getHijo1()->obtenerDatos();
-		hijos->insertar(izq);
-		hijos->insertar(der);
+		hijos.insertar(izq);
+		hijos.insertar(der);
 		if (izq != NULL) {
 			descomponerRec(actual->getHijo0());
 		}
