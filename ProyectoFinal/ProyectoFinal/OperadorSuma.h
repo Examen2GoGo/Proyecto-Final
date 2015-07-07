@@ -13,7 +13,7 @@ public:
 	OperadorSuma();
 	~OperadorSuma();
 
-	virtual Elemento * operar(Lista&);
+	virtual Elemento * operar(DoublyLinkedList<Elemento>&);
 
 	virtual Elemento * clonar();
 };

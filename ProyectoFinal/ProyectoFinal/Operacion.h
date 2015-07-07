@@ -1,7 +1,6 @@
-
 #pragma once
 #include "stdafx.h"
-/*#include <string>
+/*
 #include "Nodo.h"
 #include "Elemento.h"
 #include "Operando.h"
@@ -39,9 +38,10 @@ private:
 
 public:
 	Operacion(string);
+	Operacion(); //sobra
 	virtual ~Operacion();
 
-	Nodo * descomponer();
+	ArbolBinario<Elemento> * descomponer();
 	string getValor();
 
 	virtual Elemento * clonar();

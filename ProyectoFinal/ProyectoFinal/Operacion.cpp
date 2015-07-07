@@ -13,8 +13,8 @@ Operacion::Operacion(string operacion) {
 Operacion::~Operacion() {
 }
 
-Nodo * Operacion::descomponer() {
-
+ArbolBinario<Elemento> * Operacion::descomponer() {
+/*
 	Nodo * resultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
@@ -81,6 +81,8 @@ Nodo * Operacion::descomponer() {
 		resultado->setHijo1(procesarStringHijo(der));
 	}
 	return resultado;
+	*/
+	return NULL;
 }
 
 void Operacion::eliminarEspaciosEnBlanco() {

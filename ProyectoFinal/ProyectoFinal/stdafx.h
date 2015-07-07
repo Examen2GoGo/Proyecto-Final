@@ -16,9 +16,13 @@
 #include <fstream>
 #include <math.h>
 #include <cmath>
-#include "Lista.h"
-#include "Nodo.h"
-#include "Arbol.h"
+#include <ctime>
+#include <cassert>
+#include <cstdlib>
+#include "DoublyLinkedList.h"
+#include "NodoLista.h"
+#include "ArbolBinario.h"
+#include "NodoArbol.h"
 #include "Elemento.h"
 #include "Operando.h"
 #include "Operador.h"

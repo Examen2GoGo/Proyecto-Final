@@ -3,7 +3,6 @@
 //#include "Operador.h"
 //#include "Operando.h"
 
-
 class OperadorBinario :public Operador {
 
 protected:
@@ -13,7 +12,7 @@ public:
 	OperadorBinario();
 	~OperadorBinario();
 
-	virtual Elemento * operar(Lista&) = 0;
+	virtual Elemento * operar(DoublyLinkedList<Elemento>&) = 0;
 
 	virtual Elemento * clonar() = 0;
 };

@@ -12,9 +12,12 @@ protected:
 	virtual void imprimir(ostream&) = 0;
 
 public:
-	Elemento();
-	virtual ~Elemento();
+	//Elemento();
+	//virtual ~Elemento();
 	virtual Elemento * clonar() = 0;
 };
 
-ostream& operator<<(ostream &, Elemento &);
+ostream& operator<<(ostream & out, Elemento & elemento) {
+	elemento.imprimir(out);
+	return out;
+}

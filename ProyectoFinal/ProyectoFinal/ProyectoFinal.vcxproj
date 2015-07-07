@@ -68,10 +68,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Arbol.h" />
+    <ClInclude Include="ArbolBinario.h" />
+    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="Elemento.h" />
-    <ClInclude Include="Lista.h" />
-    <ClInclude Include="Nodo.h" />
+    <ClInclude Include="IteradorArbol.h" />
+    <ClInclude Include="IteradorInverso.h" />
+    <ClInclude Include="IteradorLista.h" />
+    <ClInclude Include="NodoArbol.h" />
+    <ClInclude Include="NodoLista.h" />
     <ClInclude Include="Operacion.h" />
     <ClInclude Include="Operador.h" />
     <ClInclude Include="OperadorBinario.h" />
@@ -92,9 +96,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Arbol.cpp" />
-    <ClCompile Include="Elemento.cpp" />
-    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operacion.cpp" />
     <ClCompile Include="OperadorBinario.cpp" />
@@ -116,9 +117,6 @@
   <ItemGroup>
     <Text Include="operaciones.txt" />
     <Text Include="resultados.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

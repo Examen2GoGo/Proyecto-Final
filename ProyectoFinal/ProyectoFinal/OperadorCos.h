@@ -12,7 +12,7 @@ public:
 	OperadorCos();
 	~OperadorCos();
 
-	virtual Elemento * operar(Lista&);
+	virtual Elemento * operar(DoublyLinkedList<Elemento>&);
 
 	virtual Elemento * clonar();
 };
