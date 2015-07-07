@@ -98,7 +98,6 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operacion.cpp" />
-    <ClCompile Include="OperadorBinario.cpp" />
     <ClCompile Include="OperadorCos.cpp" />
     <ClCompile Include="OperadorDivision.cpp" />
     <ClCompile Include="OperadorElevacion.cpp" />
@@ -109,9 +108,8 @@
     <ClCompile Include="OperadorSen.cpp" />
     <ClCompile Include="OperadorSuma.cpp" />
     <ClCompile Include="OperadorTan.cpp" />
-    <ClCompile Include="OperadorTernario.cpp" />
-    <ClCompile Include="OperadorUnario.cpp" />
     <ClCompile Include="Operando.cpp" />
+    <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>

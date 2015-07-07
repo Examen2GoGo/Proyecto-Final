@@ -1,27 +1,33 @@
+
 #include "stdafx.h"
+
+#include "Elemento.h"
+#include "Operacion.h"
+#include "DoublyLinkedList.h"
+#include "ArbolBinario.h"
 
 int _tmain(int argc, _TCHAR* argv[]) {
 
 	ifstream file("Operaciones.txt");
+
+	DoublyLinkedList<Operacion *> operaciones;
+	DoublyLinkedList<Operador *> resultados;
+	ArbolBinario<Elemento *> arbol;
+
 	string str;
-
-	DoublyLinkedList<Operacion> operaciones;
-	DoublyLinkedList<Operando> resultados;
-	ArbolBinario<Operacion> arbol;
-
 	while (getline(file, str)){
-		operaciones.addLast(Operacion(str));
+		operaciones.addLast(new Operacion(str));
 	}
-	cout << "Operaciones:\n" << operaciones << endl;
 
-	IteradorLista<Operacion> itA = operaciones.begin();
+	IteradorLista<Operacion *> itA = operaciones.begin();
 	while (itA != operaciones.end()) {
-		cout << *(itA++) << "->";
-		arbol.insertar(*(itA++));
+		Operacion * op = *itA;
+		cout << *op << "-> ";
+		arbol.insertar(op);
 		//arbol.resolver();
+		itA++;
 	}
 	cout << endl;
-
 
 	system("pause");
 	return 0;

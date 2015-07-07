@@ -1,7 +1,7 @@
 #pragma once
-#include "stdafx.h"
-//#include "OperadorUnario.h"
-//#include "Operando.h"
+
+#include "OperadorUnario.h"
+#include "Operando.h"
 
 class OperadorLn : public OperadorUnario {
 

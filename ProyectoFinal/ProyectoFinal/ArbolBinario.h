@@ -46,6 +46,7 @@ public:
 
 private:
 	void insertarRec(NodoArbol<T> * nodoActual, NodoArbol<T> * elemento) {
+		/*
 		if (nodoActual->actual < elemento->actual) {
 			if (nodoActual->hIzq != NULL) {
 				insertarRec(nodoActual->hIzq, elemento);
@@ -60,7 +61,7 @@ private:
 				nodoActual->hDer = elemento;
 				elemento->padre = nodoActual;
 			}
-		}
+		}*/
 	}
 
 	void imprimir(NodoArbol<T>* nodo, ostream& out, int profundidad) {

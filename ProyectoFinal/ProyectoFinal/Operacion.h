@@ -1,8 +1,8 @@
 #pragma once
 #include "stdafx.h"
-/*
-#include "Nodo.h"
+
 #include "Elemento.h"
+#include "NodoArbol.h"
 #include "Operando.h"
 #include "Operador.h"
 #include "OperadorSuma.h"
@@ -14,7 +14,7 @@
 #include "OperadorTan.h"
 #include "OperadorLn.h"
 #include "OperadorElevacion.h"
-#include "OperadorFuncion.h"*/
+#include "OperadorFuncion.h"
 
 using namespace std;
 
@@ -38,7 +38,6 @@ private:
 
 public:
 	Operacion(string);
-	Operacion(); //sobra
 	virtual ~Operacion();
 
 	ArbolBinario<Elemento> * descomponer();

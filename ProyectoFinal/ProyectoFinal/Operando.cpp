@@ -1,4 +1,6 @@
+
 #include "stdafx.h"
+
 #include "Operando.h"
 
 Operando::Operando(double valor) {

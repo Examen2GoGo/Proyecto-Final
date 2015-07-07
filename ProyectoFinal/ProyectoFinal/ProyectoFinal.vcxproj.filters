@@ -18,20 +18,17 @@
     <Filter Include=".txt files">
       <UniqueIdentifier>{d095e41f-65d3-448f-a2f0-98bbfd37f5f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\EstrucurasDatosWorking">
+    <Filter Include="Header Files\EstrucurasDatos">
       <UniqueIdentifier>{6322dc85-71e1-4f19-9563-ff6ecee81dcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Padres">
+      <UniqueIdentifier>{7d5171d5-ef31-4ae4-806a-3260d3e26cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Padres">
+      <UniqueIdentifier>{58301a6c-5a92-433e-a2b0-5355f2b5d5de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Elemento.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Operacion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Operando.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -77,46 +74,46 @@
     <ClInclude Include="OperadorUnario.h">
       <Filter>Header Files\Operadores</Filter>
     </ClInclude>
-    <ClInclude Include="Operador.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ArbolBinario.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="DoublyLinkedList.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="IteradorInverso.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="IteradorArbol.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="IteradorLista.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="NodoArbol.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
     </ClInclude>
     <ClInclude Include="NodoLista.h">
-      <Filter>Header Files\EstrucurasDatosWorking</Filter>
+      <Filter>Header Files\EstrucurasDatos</Filter>
+    </ClInclude>
+    <ClInclude Include="Elemento.h">
+      <Filter>Header Files\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="Operacion.h">
+      <Filter>Header Files\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="Operador.h">
+      <Filter>Header Files\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="Operando.h">
+      <Filter>Header Files\Padres</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Operacion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Operando.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OperadorBinario.cpp">
-      <Filter>Source Files\Operadores</Filter>
     </ClCompile>
     <ClCompile Include="OperadorCos.cpp">
       <Filter>Source Files\Operadores</Filter>
@@ -148,11 +145,14 @@
     <ClCompile Include="OperadorTan.cpp">
       <Filter>Source Files\Operadores</Filter>
     </ClCompile>
-    <ClCompile Include="OperadorTernario.cpp">
-      <Filter>Source Files\Operadores</Filter>
+    <ClCompile Include="Operacion.cpp">
+      <Filter>Source Files\Padres</Filter>
     </ClCompile>
-    <ClCompile Include="OperadorUnario.cpp">
-      <Filter>Source Files\Operadores</Filter>
+    <ClCompile Include="Operando.cpp">
+      <Filter>Source Files\Padres</Filter>
+    </ClCompile>
+    <ClCompile Include="Elemento.cpp">
+      <Filter>Source Files\Padres</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

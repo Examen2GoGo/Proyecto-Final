@@ -1,7 +1,7 @@
 
 #pragma once
-#include "stdafx.h"
-//#include "Elemento.h"
+
+#include "Elemento.h"
 
 using namespace std;
 
