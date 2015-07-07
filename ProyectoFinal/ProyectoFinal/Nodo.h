@@ -9,7 +9,7 @@ class Nodo {
 
 private:
 	Elemento * actual;
-	Nodo  *hijo0, *hijo1,*hijo2;
+	Lista<NodoArbol> hijos;
 
 public:
 	Nodo * siguiente;

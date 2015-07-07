@@ -42,7 +42,6 @@ void Arbol::descomponerRec(Nodo * actual) {
 		if (der != NULL) {
 			descomponerRec(actual->getHijo1());
 		}
-		raiz = actual;
 	}
 }
 
@@ -52,11 +51,12 @@ Elemento * Arbol::solucionar() {
 }
 
 void Arbol::solucionarRec(Nodo * actual) {
-	Nodo * h0 = actual->getHijo0();
-	Nodo * h1 = actual->getHijo1();
-	Nodo * h2 = actual->getHijo2(); 
 	Operador * op = dynamic_cast<Operador*>(actual->obtenerDatos());
 	if (op != NULL) {
+
+		// Recorrer hijos con for
+
+
 		if (h0 != NULL) {
 			solucionarRec(actual->getHijo0());
 		}

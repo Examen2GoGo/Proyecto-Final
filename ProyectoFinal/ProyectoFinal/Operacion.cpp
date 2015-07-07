@@ -47,11 +47,12 @@ Nodo * Operacion::descomponer() {
 		}
 		resultado->setHijo1(procesarStringHijo(der));
 		return resultado;
-	}else{
-			string izq = operacion.substr(0, indice);
-			string cen = operacion.substr(indice, 1);
-			string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
-		
+	}
+	else{
+		string izq = operacion.substr(0, indice);
+		string cen = operacion.substr(indice, 1);
+		string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
+
 		switch (cen[0]) {
 		case '+':
 			resultado = new Nodo(new OperadorSuma());
@@ -68,7 +69,7 @@ Nodo * Operacion::descomponer() {
 		case '^':
 			resultado = new Nodo(new OperadorElevacion());
 			break;
-		//case 'F':
+			//case 'F':
 			//resultado = new Nodo(new OperadorFuncion());
 			//break;
 		default:
@@ -107,7 +108,8 @@ void Operacion::eliminarParentesisInnecesarios(string & string) {
 				char c = string[i];
 				if (c == LEFT_PARENTHESIS) {
 					parentesis++;
-				} else if (c == RIGHT_PARENTHESIS) {
+				}
+				else if (c == RIGHT_PARENTHESIS) {
 					parentesis--;
 				}
 				if (parentesis < 1) {
@@ -131,9 +133,11 @@ int Operacion::indiceMenorPrecedencia(string string) {
 			char c = string[i];
 			if (c == LEFT_PARENTHESIS) {
 				parentesis++;
-			} else if (c == RIGHT_PARENTHESIS) {
+			}
+			else if (c == RIGHT_PARENTHESIS) {
 				parentesis--;
-			} else if (parentesis == 0 && c == OPERADORES[k]) {
+			}
+			else if (parentesis == 0 && c == OPERADORES[k]) {
 				index = i;
 			}
 		}
@@ -146,7 +150,8 @@ Elemento * Operacion::procesarStringHijo(string string) {
 	eliminarParentesisInnecesarios(string);
 	if (indiceMenorPrecedencia(string) == -1) {
 		resultado = new Operando(stod(string));
-	} else {
+	}
+	else {
 		resultado = new Operacion(string);
 	}
 	return resultado;
@@ -166,21 +171,20 @@ Elemento * Operacion::clonar() {
 
 
 void Operacion::reemplazar(string inicial, string cambio){
-		if (inicial.empty())
-			return;
+	if (!inicial.empty()){
 		size_t start_pos = 0;
 		while ((start_pos = operacion.find(inicial, start_pos)) != std::string::npos) {
 			operacion.replace(start_pos, inicial.length(), cambio);
 			//start_pos += cambio.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
 		}
 	}
+}
 
 void Operacion::reemplazarOperadores(){
-	reemplazar( "sen", "s");
+	reemplazar("sen", "s");
 	reemplazar("cos", "c");
 	reemplazar("tan", "t");
 	reemplazar("ln", "l");
 	reemplazar("FUNC", "F");
-	
 
 }

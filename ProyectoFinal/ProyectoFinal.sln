@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProyectoFinal", "ProyectoFinal\ProyectoFinal.vcxproj", "{953D958C-C290-4017-AEE8-7C06883F3A1F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArbolListaEmplantilladas", "ArbolListaEmplantilladas\ArbolListaEmplantilladas.vcxproj", "{C2194BCA-EEE6-473A-87F1-D782ABB15155}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Debug|Win32.Build.0 = Debug|Win32
 		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Release|Win32.ActiveCfg = Release|Win32
 		{953D958C-C290-4017-AEE8-7C06883F3A1F}.Release|Win32.Build.0 = Release|Win32
+		{C2194BCA-EEE6-473A-87F1-D782ABB15155}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2194BCA-EEE6-473A-87F1-D782ABB15155}.Debug|Win32.Build.0 = Debug|Win32
+		{C2194BCA-EEE6-473A-87F1-D782ABB15155}.Release|Win32.ActiveCfg = Release|Win32
+		{C2194BCA-EEE6-473A-87F1-D782ABB15155}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

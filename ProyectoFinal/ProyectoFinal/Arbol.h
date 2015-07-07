@@ -11,7 +11,6 @@ class Arbol {
 	
 private:
 	Nodo * raiz;
-	Lista hijos;
 	void destruirRec(Nodo *);
 	void solucionarRec(Nodo *);
 	void descomponerRec(Nodo *);
