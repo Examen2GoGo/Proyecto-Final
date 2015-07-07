@@ -14,11 +14,13 @@ class ArbolBinario {
 	friend ostream & operator<<(ostream &, ArbolBinario<T> &);
 
 private:
-	NodoArbol<T> * raiz;
+	NodoArbol<DoublyLinkedList<T>> * raiz;
+
+	
 
 public:
-	ArbolBinario() {
-		raiz = NULL;
+	ArbolBinario(DoublyLinkedList<T> elemento) {
+		this->raiz = new NodoArbol<DoublyLinkedList<T>>(elemento);
 	}
 
 	virtual ~ArbolBinario() {
@@ -27,8 +29,18 @@ public:
 		}
 	}
 
+	void ArbolBinario::descomponer() {
+		descomponerRec(raiz);
+	}
+	
+	NodoArbol<DoublyLinkedList<T>> * ArbolBinario::solucionar() {
+		solucionarRec(raiz);
+		return raiz;
+	}
 	void insertar(T elemento) {
-		NodoArbol<T> * nodo = new NodoArbol<T>(elemento);
+		DoublyLinkedList<T> nuevoElemento = new DoublyLinkedList<T>();
+		nuevoElemento.addLast(elemento);
+		NodoArbol <DoublyLinkedList<T>> * nodo = new <DoublyLinkedList<T>>(nuevoElemento);
 		if (raiz == NULL) {
 			raiz = nodo;
 		} else {
@@ -45,6 +57,46 @@ public:
 	}
 
 private:
+
+	void ArbolBinario::descomponerRec(NodoArbol <DoublyLinkedList<T>> * actual) {
+		DoublyLinkedList<T> * actualLista = actual->getNodoArbol();
+		T * elemento = actualLista->getFirstElement();
+		Operacion * operacion = dynamic_cast<Operacion *>(elemento);
+		if (operacion != NULL) {
+
+			Elemento * tmp = elemento;
+			actual = operacion->descomponer();
+			delete tmp;
+
+			Elemento * izq = actual->getHijoIzquierdo();
+			Elemento * der = actual->getHijoDerecho();
+			if (izq != NULL) {
+				descomponerRec(actual->getHijoIzquierdo());
+			}
+			if (der != NULL) {
+				descomponerRec(actual->getHijoDerecho());
+			}
+		}
+	}
+
+	void Arbol::solucionarRec(NodoArbol <T> * actual) {
+		T * hijo = actual->getNodoArbol();
+		Elemento * der = actual->getHijoDerecho();
+		Operador * op = dynamic_cast<Operador*>(actual);
+		if (op != NULL) {
+			if (izq != NULL) {
+				solucionarRec(actual->getHijoIzquierdo());
+			}
+			if (der != NULL) {
+				solucionarRec(actual->getHijoDerecho());
+			}
+			Elemento * solucion = op->operar(actual->getHijoIzquierdo(), actual->getHijoDerecho());
+			delete actual;
+			actual = solucion;
+		}
+	}
+
+	
 	void insertarRec(NodoArbol<T> * nodoActual, NodoArbol<T> * elemento) {
 		/*
 		if (nodoActual->actual < elemento->actual) {

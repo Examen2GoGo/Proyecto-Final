@@ -3,6 +3,7 @@
 
 #include "Elemento.h"
 #include "NodoArbol.h"
+#include "DoublyLinkedList.h"
 #include "Operando.h"
 #include "Operador.h"
 #include "OperadorSuma.h"
@@ -16,18 +17,20 @@
 #include "OperadorElevacion.h"
 #include "OperadorFuncion.h"
 
-using namespace std;
+
 
 class Operacion : public Elemento {
 private:
 
-	static const int NUM_OPERADORES = 11;
+	static const int NUM_OPERADORES = 10;
 	static const char OPERADORES[NUM_OPERADORES];
 	static const char LEFT_PARENTHESIS = '(';
 	static const char RIGHT_PARENTHESIS = ')';
-
+	static const char RIGHT_BRACKET = ']';
+	static const char LEFT_BRACKET = '[';
 	string operacion;
-	
+	DoublyLinkedList<T> * hijos;
+
 	virtual void imprimir(ostream&);
 	void eliminarEspaciosEnBlanco();
 	void eliminarParentesisInnecesarios(string &);
@@ -40,7 +43,7 @@ public:
 	Operacion(string);
 	virtual ~Operacion();
 
-	ArbolBinario<Elemento> * descomponer();
+	DoublyLinkedList<T>* descomponer();
 	string getValor();
 
 	virtual Elemento * clonar();

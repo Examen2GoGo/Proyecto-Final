@@ -10,18 +10,21 @@ class NodoArbol {
 	friend class IteradorArbol;
 
 private:
-	T actual;
-	NodoArbol<T> *padre, *hIzq, *hDer;
+	DoublyLinkedList <T> actual;
+	NodoArbol<DoublyLinkedList<T>> *padre, *hijos;
 
 public:
-	NodoArbol(T elemento) {
-		this->actual = elemento;
+	NodoArbol<DoublyLinkedList <T>> lista {
+		this->actual = lista;
 		padre = NULL;
-		hIzq = NULL;
-		hDer = NULL;
+		hijos = NULL;
 	}
 
 	~NodoArbol() {
+	}
+
+	DoublyLinkedList<T> * NodoArbol::getNodoArbol(){
+		return actual;
 	}
 
 };

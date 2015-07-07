@@ -126,6 +126,10 @@ public:
 		}
 	}
 
+	T * getFirstElement(){
+		return head->getNodoLista;
+	}
+
 
 	void imprimir(NodoLista<T>* nodo, ostream& out) {
 		if (nodo != NULL) {

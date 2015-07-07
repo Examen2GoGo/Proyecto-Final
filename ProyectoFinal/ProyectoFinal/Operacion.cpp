@@ -13,13 +13,14 @@ Operacion::Operacion(string operacion) {
 Operacion::~Operacion() {
 }
 
-ArbolBinario<Elemento> * Operacion::descomponer() {
+template<class T>
+DoublyLinkedList <T> * Operacion::descomponer() {
 /*
-	Nodo * resultado;
+	DoublyLinkedList<T> * resultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
-		resultado = new Nodo(new Operando(stod(operacion)));
+		resultado = new Operando(stod(operacion));
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
@@ -27,25 +28,25 @@ ArbolBinario<Elemento> * Operacion::descomponer() {
 
 		switch (cen[0]) {
 		case 's':
-			resultado = new Nodo(new OperadorSen());
+			resultado = new OperadorSen();
 			break;
 		case 'c':
-			resultado = new Nodo(new OperadorCos());
+			resultado = new OperadorCos();
 			break;
 		case 't':
-			resultado = new Nodo(new OperadorTan());
+			resultado = new OperadorTan();
 			break;
 		case 'l':
-			resultado = new Nodo(new OperadorLn());
+			resultado = new OperadorLn();
 			break;
 		case 'F':
-			resultado = new Nodo(new OperadorFuncion());
+			resultado = new OperadorFuncion();
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
-		resultado->setHijo1(procesarStringHijo(der));
+		resultado->addLast(procesarStringHijo(der));
 		return resultado;
 	}
 	else{
@@ -55,30 +56,30 @@ ArbolBinario<Elemento> * Operacion::descomponer() {
 
 		switch (cen[0]) {
 		case '+':
-			resultado = new Nodo(new OperadorSuma());
+			resultado = new OperadorSuma();
 			break;
 		case '-':
-			resultado = new Nodo(new OperadorResta());
+			resultado = new OperadorResta();
 			break;
 		case '/':
-			resultado = new Nodo(new OperadorDivision());
+			resultado = new OperadorDivision();
 			break;
 		case'*':
-			resultado = new Nodo(new OperadorMultiplicacion());
+			resultado = new OperadorMultiplicacion();
 			break;
 		case '^':
-			resultado = new Nodo(new OperadorElevacion());
+			resultado = new OperadorElevacion();
 			break;
 			//case 'F':
-			//resultado = new Nodo(new OperadorFuncion());
+			//resultado = new OperadorFuncion();
 			//break;
 		default:
 			resultado = NULL;
 			break;
 		}
 
-		resultado->setHijo0(procesarStringHijo(izq));
-		resultado->setHijo1(procesarStringHijo(der));
+		hijos->addLast(procesarStringHijo(izq));
+		hijos->addLast(procesarStringHijo(der));
 	}
 	return resultado;
 	*/

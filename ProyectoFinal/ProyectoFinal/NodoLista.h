@@ -25,4 +25,8 @@ public:
 
 	~NodoLista() {
 	}
+
+	T * NodoLista::getNodoLista(){
+		return actual;
+	}
 };
