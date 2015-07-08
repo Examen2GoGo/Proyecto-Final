@@ -10,6 +10,12 @@ using namespace std;
 template<class T>
 class ArbolBinario {
 
+	template <class T>
+	friend class ArbolBinario;
+
+	template <class T>
+	friend class IteradorArbol;
+
 	template<class T>
 	friend ostream & operator<<(ostream &, ArbolBinario<T> &);
 
@@ -21,6 +27,7 @@ private:
 public:
 	ArbolBinario(DoublyLinkedList<T> elemento) {
 		this->raiz = new NodoArbol<DoublyLinkedList<T>>(elemento);
+
 	}
 
 	virtual ~ArbolBinario() {
@@ -65,24 +72,43 @@ private:
 		if (operacion != NULL) {
 
 			Elemento * tmp = elemento;
-			actual = operacion->descomponer();
+			actualLista = operacion->descomponer();
+			actual = new NodoArbol(actualLista);
 			delete tmp;
 
-			Elemento * izq = actual->getHijoIzquierdo();
+			//--------Como paso la lista hijos para aca?
+
+			for (iterator it = hijos.begin(); it != hijos.end(); ++it){
+				if (*it != NULL){
+					DoublyLinkedList<T> nuevoElemento;
+					NodoArbol<DoublyLinkedList<T>> * nuevoNodo= nuevoElemento.addLast(*it);
+					descomponerRec(nuevoNodo);
+				}
+
+			}
+
+			/*Elemento * izq = actual->getHijoIzquierdo();
 			Elemento * der = actual->getHijoDerecho();
 			if (izq != NULL) {
 				descomponerRec(actual->getHijoIzquierdo());
 			}
 			if (der != NULL) {
 				descomponerRec(actual->getHijoDerecho());
-			}
+			}*/
 		}
 	}
 
-	void Arbol::solucionarRec(NodoArbol <T> * actual) {
-		T * hijo = actual->getNodoArbol();
-		Elemento * der = actual->getHijoDerecho();
-		Operador * op = dynamic_cast<Operador*>(actual);
+	void Arbol::solucionarRec(NodoArbol <DoublyLinkedList<T>> * actual) {
+		DoublyLinkedList<T> * hijo = actual->getNodoArbol();
+		for (iterator it = hijo.begin(); it != hijo.end(); ++it){
+			if (*it != NULL){
+				T * nuevoOp =*it->getNodoLista
+				Operador * op = dynamic_cast<Operador*>(nuevoOp);
+			}
+
+		}
+		//Elemento * der = actual->getHijoDerecho();
+		//Operador * op = dynamic_cast<Operador*>(actual);
 		if (op != NULL) {
 			if (izq != NULL) {
 				solucionarRec(actual->getHijoIzquierdo());

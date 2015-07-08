@@ -1,6 +1,6 @@
 #pragma once
 
-template<class T>
+template<class T, template<class L> class DoublyLinkedList>
 class NodoArbol {
 
 	template <class T>
@@ -14,7 +14,7 @@ private:
 	NodoArbol<DoublyLinkedList<T>> *padre, *hijos;
 
 public:
-	NodoArbol<DoublyLinkedList <T>> lista {
+	NodoArbol(DoublyLinkedList<T> lista){
 		this->actual = lista;
 		padre = NULL;
 		hijos = NULL;

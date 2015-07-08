@@ -15,12 +15,15 @@ Operacion::~Operacion() {
 
 template<class T>
 DoublyLinkedList <T> * Operacion::descomponer() {
-/*
+
 	DoublyLinkedList<T> * resultado;
+	Elemento * elementoResultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
-		resultado = new Operando(stod(operacion));
+		elementoResultado = new Operando(stod(operacion));
+		resultado.addLast(elementoResultado);
+		return resultado;
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
@@ -28,25 +31,30 @@ DoublyLinkedList <T> * Operacion::descomponer() {
 
 		switch (cen[0]) {
 		case 's':
-			resultado = new OperadorSen();
+			elementoResultado = new OperadorSen();
+			resultado.addLast(elementoResultado);
 			break;
 		case 'c':
-			resultado = new OperadorCos();
+			elementoResultado = new OperadorCos();
+			resultado.addLast(elementoResultado);
 			break;
 		case 't':
-			resultado = new OperadorTan();
+			elementoResultado = new OperadorTan();
+			resultado.addLast(elementoResultado);
 			break;
 		case 'l':
-			resultado = new OperadorLn();
+			elementoResultado = new OperadorLn();
+			resultado.addLast(elementoResultado);
 			break;
 		case 'F':
-			resultado = new OperadorFuncion();
+			elementoResultado = new OperadorFuncion();
+			resultado.addLast(elementoResultado);
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
-		resultado->addLast(procesarStringHijo(der));
+		hijosArbol->addLast(procesarStringHijo(der));
 		return resultado;
 	}
 	else{
@@ -56,34 +64,38 @@ DoublyLinkedList <T> * Operacion::descomponer() {
 
 		switch (cen[0]) {
 		case '+':
-			resultado = new OperadorSuma();
+			elementoResultado = new OperadorSuma();
+			resultado.addLast(elementoResultado);
 			break;
 		case '-':
-			resultado = new OperadorResta();
+			elementoResultado = new OperadorResta();
+			resultado.addLast(elementoResultado);
 			break;
 		case '/':
-			resultado = new OperadorDivision();
+			elementoResultado = new OperadorDivision();
+			resultado.addLast(elementoResultado);
 			break;
 		case'*':
-			resultado = new OperadorMultiplicacion();
+			elementoResultado = new OperadorMultiplicacion();
+			resultado.addLast(elementoResultado);
 			break;
 		case '^':
-			resultado = new OperadorElevacion();
+			elementoResultado = new OperadorElevacion();
+			resultado.addLast(elementoResultado);
 			break;
 			//case 'F':
-			//resultado = new OperadorFuncion();
+			//elementoResultado = new OperadorFuncion();
+			//resultado.addLast(elementoResultado);
 			//break;
 		default:
 			resultado = NULL;
 			break;
 		}
 
-		hijos->addLast(procesarStringHijo(izq));
-		hijos->addLast(procesarStringHijo(der));
+		hijosArbol->addLast(procesarStringHijo(izq));
+		hijosArbol->addLast(procesarStringHijo(der));
 	}
 	return resultado;
-	*/
-	return NULL;
 }
 
 void Operacion::eliminarEspaciosEnBlanco() {

@@ -29,7 +29,9 @@ private:
 	static const char RIGHT_BRACKET = ']';
 	static const char LEFT_BRACKET = '[';
 	string operacion;
-	DoublyLinkedList<T> * hijos;
+
+	template<class T>
+	DoublyLinkedList<T> * hijosArbol;
 
 	virtual void imprimir(ostream&);
 	void eliminarEspaciosEnBlanco();
@@ -43,7 +45,9 @@ public:
 	Operacion(string);
 	virtual ~Operacion();
 
+	template<class T>
 	DoublyLinkedList<T>* descomponer();
+
 	string getValor();
 
 	virtual Elemento * clonar();
