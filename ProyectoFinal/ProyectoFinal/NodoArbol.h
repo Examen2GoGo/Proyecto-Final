@@ -1,6 +1,6 @@
 #pragma once
-
-template<class T, template<class L> class DoublyLinkedList>
+#include "DoublyLinkedList.h"
+template <typename T, template <class> class U>
 class NodoArbol {
 
 	template <class T>
@@ -11,11 +11,13 @@ class NodoArbol {
 
 private:
 	DoublyLinkedList <T> actual;
-	NodoArbol<DoublyLinkedList<T>> *padre, *hijos;
+	T elementoActual;
+	NodoArbol <T,DoublyLinkedList>*padre, *hijos;
 
 public:
-	NodoArbol(DoublyLinkedList<T> lista){
+	NodoArbol( T lista){
 		this->actual = lista;
+		this->elementoActual = elemento;
 		padre = NULL;
 		hijos = NULL;
 	}
