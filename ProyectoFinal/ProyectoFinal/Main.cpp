@@ -8,11 +8,11 @@
 
 int _tmain(int argc, _TCHAR* argv[]) {
 
-	/*ifstream file("Operaciones.txt");
+	ifstream file("Operaciones.txt");
 
 	DoublyLinkedList<Operacion *> operaciones;
 	DoublyLinkedList<Operador *> resultados;
-	ArbolBinario<DoublyLinkedList *> arbol;
+	ArbolBinario<Operacion *> arbol;
 
 	string str;
 	while (getline(file, str)){
@@ -23,11 +23,11 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	while (itA != operaciones.end()) {
 		Operacion * op = *itA;
 		cout << *op << "-> ";
-		arbol.insertar(op);
+		arbol.solucionar(op);
 		//arbol.resolver();
 		itA++;
 	}
-	cout << endl;*/
+	cout << endl;
 
 	system("pause");
 	return 0;
