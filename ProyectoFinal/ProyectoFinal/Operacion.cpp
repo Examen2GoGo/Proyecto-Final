@@ -31,6 +31,23 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
+		if (cen[0] == 'F'){
+			elementoResultado = new OperadorSen();
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
+			string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
+			istringstream ss(der);
+			string token;
+			while (std::getline(ss, token, ',')) {
+
+				hijos.addLast(procesarStringHijo(token))
+			}
+		}
+		resultado->setHijos(hijos);
+		return resultado;
+	}
+	else if (indice == 0){
+		string cen = operacion.substr(indice, 1);
 		string der = operacion.substr(indice + 1, operacion.length() - indice - 1);
 
 		switch (cen[0]) {
@@ -51,11 +68,6 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 			break;
 		case 'l':
 			elementoResultado = new OperadorLn();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
-			break;
-		case 'F':
-			elementoResultado = new OperadorFuncion();
 			resultadoOp.addLast(elementoResultado);
 			resultado = new NodoArbol(resultadoOp);
 			break;
@@ -160,6 +172,7 @@ void Operacion::eliminarParentesisInnecesarios(string & string) {
 int Operacion::indiceMenorPrecedencia(string string) {
 	int index = -1;
 	int parentesis = 0;
+	//int brackets = 0;
 	for (int k = 0; k < NUM_OPERADORES && index == -1; k++) {
 		for (unsigned int i = 0; i < string.length() && index == -1; ++i) {
 			char c = string[i];
@@ -169,6 +182,12 @@ int Operacion::indiceMenorPrecedencia(string string) {
 			else if (c == RIGHT_PARENTHESIS) {
 				parentesis--;
 			}
+			/*if (c == LEFT_BRACKET) {
+				brackets++;
+			}
+			else if (c == RIGHT_BRACKET) {
+				brackets--;
+			}*/
 			else if (parentesis == 0 && c == OPERADORES[k]) {
 				index = i;
 			}
