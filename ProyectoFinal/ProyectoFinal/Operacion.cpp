@@ -111,10 +111,6 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 			resultadoOp.addLast(elementoResultado);
 			resultado = new NodoArbol(resultadoOp);
 			break;
-			//case 'F':
-			//elementoResultado = new OperadorFuncion();
-			// resultado = new NodoArbol(elementoResultado);
-			//break;
 		default:
 			resultado = NULL;
 			break;
