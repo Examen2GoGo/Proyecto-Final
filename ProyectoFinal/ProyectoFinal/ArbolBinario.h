@@ -67,7 +67,7 @@ private:
 
 	void ArbolBinario::descomponerRec(NodoArbol <T, DoublyLinkedList> * actual) {
 		DoublyLinkedList<T> elementos = actual->getNodoArbol;
-		for (iterator it = elementos.begin(); it != elementos.end(); ++it){
+		for (IteratorLista<T> it = elementos.begin(); it != elementos.end(); ++it){
 			if (*it != NULL){
 				Operacion * operacion = dynamic_cast<Operacion *>(*it);
 				if (operacion != NULL) {
@@ -86,37 +86,19 @@ private:
 
 
 	void ArbolBinario::solucionarRec(NodoArbol <T, DoublyLinkedList> * actual) {
-		DoublyLinkedList<T> * hijo = actual->getNodoArbol();
-		for (iterator it = hijo.begin(); it != hijo.end(); ++it){
-			if (*it != NULL){
-				T * nuevoOp =*it->getNodoLista
-				Operador * op = dynamic_cast<Operador*>(nuevoOp);
-				if (nuevoOp != NULL) {
-					if(hijo != NULL){
+				if (actual != NULL) {
+					if(actual->hijos != NULL){
 						solucionarRec(actual->hijos);
 					}
-					Elemento * solucion = op->operar(hijos);
+					DoublyLinkedList<T> operandos = actual->hijos->getNodoArbolHijos();
+					Operador * op = dynamic_cast<Operador*>(actual->getNodoArbol()->getFirstElement());
+					Elemento * solucion = op->operar(operandos);
+					DoublyLinkedList<T> listaSolucion;
+					listasolucion.addLast(solucion);
 					delete actual;
-					actual = new NodoArbol(DoublyLinkedList(solucion));
+					actual = new NodoArbol(listaSolucion);
 				}
 			}
-
-		}
-		/*Elemento * der = actual->getHijoDerecho();
-		//Operador * op = dynamic_cast<Operador*>(actual);
-		if (op != NULL) {
-			if (izq != NULL) {
-				solucionarRec(actual->hijos);
-			}
-			if (der != NULL) {
-				solucionarRec(actual->getHijoDerecho());
-			}
-			Elemento * solucion = op->operar(actual->getHijoIzquierdo(), actual->getHijoDerecho());
-			delete actual;
-			actual = solucion;
-		}*/
-	}
-
 	
 	void insertarRec(NodoArbol<T, DoublyLinkedList> * nodoActual, NodoArbol<T, DoublyLinkedList> * elemento) {
 		/*

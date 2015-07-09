@@ -127,7 +127,7 @@ public:
 	}
 
 	T * getFirstElement(){
-		return head->getNodoLista;
+		return head->getNodoLista();
 	}
 
 
