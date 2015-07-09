@@ -14,15 +14,19 @@ Operacion::~Operacion() {
 }
 
 template<class T>
-DoublyLinkedList <T> * Operacion::descomponer() {
+NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 
-	DoublyLinkedList<T> * resultado;
+	NodoArbol <T, DoublyLinkedList> * resultado;
+	DoublyLinkedList <T> hijos;
+	DoublyLinkedList<T> resultadoOp;
+
 	Elemento * elementoResultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
 		elementoResultado = new Operando(stod(operacion));
-		resultado.addLast(elementoResultado);
+		resultadoOp.addLast(elementoResultado);
+		resultado = new NodoArbol(resultadoOp);
 		return resultado;
 	}
 	else if (indice == 0){
@@ -32,29 +36,36 @@ DoublyLinkedList <T> * Operacion::descomponer() {
 		switch (cen[0]) {
 		case 's':
 			elementoResultado = new OperadorSen();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case 'c':
 			elementoResultado = new OperadorCos();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case 't':
 			elementoResultado = new OperadorTan();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case 'l':
 			elementoResultado = new OperadorLn();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case 'F':
 			elementoResultado = new OperadorFuncion();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
-		hijosArbol->addLast(procesarStringHijo(der));
+		
+		hijos.addLast(procesarStringHijo(der));
+		resultado->setHijos(hijos);
 		return resultado;
 	}
 	else{
@@ -65,35 +76,41 @@ DoublyLinkedList <T> * Operacion::descomponer() {
 		switch (cen[0]) {
 		case '+':
 			elementoResultado = new OperadorSuma();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case '-':
 			elementoResultado = new OperadorResta();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case '/':
 			elementoResultado = new OperadorDivision();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case'*':
 			elementoResultado = new OperadorMultiplicacion();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 		case '^':
 			elementoResultado = new OperadorElevacion();
-			resultado.addLast(elementoResultado);
+			resultadoOp.addLast(elementoResultado);
+			resultado = new NodoArbol(resultadoOp);
 			break;
 			//case 'F':
 			//elementoResultado = new OperadorFuncion();
-			//resultado.addLast(elementoResultado);
+			// resultado = new NodoArbol(elementoResultado);
 			//break;
 		default:
 			resultado = NULL;
 			break;
 		}
 
-		hijosArbol->addLast(procesarStringHijo(izq));
-		hijosArbol->addLast(procesarStringHijo(der));
+		hijos.addLast(procesarStringHijo(izq));
+		hijos.addLast(procesarStringHijo(der));
+		resultado->setHijos(hijos);
 	}
 	return resultado;
 }

@@ -11,13 +11,11 @@ class NodoArbol {
 
 private:
 	DoublyLinkedList <T> actual;
-	T elementoActual;
 	NodoArbol <T,DoublyLinkedList>*padre, *hijos;
 
 public:
-	NodoArbol( T lista){
-		this->actual = lista;
-		this->elementoActual = elemento;
+	NodoArbol(DoublyLinkedList<T> elementos){
+		this->actual = elementos;
 		padre = NULL;
 		hijos = NULL;
 	}
@@ -27,6 +25,14 @@ public:
 
 	DoublyLinkedList<T> * NodoArbol::getNodoArbol(){
 		return actual;
+	}
+
+	DoublyLinkedList<T> * NodoArbol::getNodoArbolHijos(){
+		return hijos;
+	}
+
+	void NodoArbol::setHijos(DoublyLinkedList<T> * elementos){
+		hijos = new NodoArbol(elementos);
 	}
 
 };

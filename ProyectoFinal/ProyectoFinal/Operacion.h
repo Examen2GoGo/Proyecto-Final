@@ -30,7 +30,8 @@ private:
 	static const char LEFT_BRACKET = '[';
 	string operacion;
 
-	DoublyLinkedList<Elemento*> * hijosArbol;
+	
+	DoublyLinkedList<int> * hijosArbol;
 
 	virtual void imprimir(ostream&);
 	void eliminarEspaciosEnBlanco();
@@ -45,7 +46,7 @@ public:
 	virtual ~Operacion();
 
 	template<class T>
-	DoublyLinkedList<T>* descomponer();
+	NodoArbol <T, DoublyLinkedList> * descomponer();
 
 	string getValor();
 

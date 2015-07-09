@@ -66,37 +66,24 @@ public:
 private:
 
 	void ArbolBinario::descomponerRec(NodoArbol <T, DoublyLinkedList> * actual) {
-		DoublyLinkedList<T> * actualLista = actual->getNodoArbol();
-		T * elemento = actualLista->getFirstElement();
-		Operacion * operacion = dynamic_cast<Operacion *>(elemento);
-		if (operacion != NULL) {
+		DoublyLinkedList<T> elementos = actual->getNodoArbol;
+		for (iterator it = elementos.begin(); it != elementos.end(); ++it){
+			if (*it != NULL){
+				Operacion * operacion = dynamic_cast<Operacion *>(*it);
+				if (operacion != NULL) {
+					Elemento * tmp = elemento;
+					actual = operacion->descomponer();
+					delete tmp;
 
-			Elemento * tmp = elemento;
-			actualLista = operacion->descomponer();
-			actual = new NodoArbol(actualLista);
-			delete tmp;
+					if (actual->hijos != NULL){
+						descomponerRec(hijos);
+					}
 
-			//--------Como paso la lista hijos para aca?
-
-			for (iterator it = hijos.begin(); it != hijos.end(); ++it){
-				if (*it != NULL){
-					DoublyLinkedList<T> nuevoElemento;
-					NodoArbol<DoublyLinkedList<T>> * nuevoNodo= nuevoElemento.addLast(*it);
-					descomponerRec(nuevoNodo);
 				}
-
 			}
-
-			/*Elemento * izq = actual->getHijoIzquierdo();
-			Elemento * der = actual->getHijoDerecho();
-			if (izq != NULL) {
-				descomponerRec(actual->getHijoIzquierdo());
-			}
-			if (der != NULL) {
-				descomponerRec(actual->getHijoDerecho());
-			}*/
 		}
 	}
+
 
 	void ArbolBinario::solucionarRec(NodoArbol <T, DoublyLinkedList> * actual) {
 		DoublyLinkedList<T> * hijo = actual->getNodoArbol();
