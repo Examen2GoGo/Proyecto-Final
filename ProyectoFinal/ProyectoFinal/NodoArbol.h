@@ -1,6 +1,7 @@
 #pragma once
 #include "DoublyLinkedList.h"
-template <typename T, template <class> class U>
+
+template <class T>
 class NodoArbol {
 
 	template <class T>
@@ -10,29 +11,35 @@ class NodoArbol {
 	friend class IteradorArbol;
 
 private:
-	DoublyLinkedList <T> actual;
-	NodoArbol <T,DoublyLinkedList>*padre, *hijos;
+	T actual;
+	DoublyLinkedList<NodoArbol<T>> hijos;
 
 public:
-	NodoArbol(DoublyLinkedList<T> elementos){
-		this->actual = elementos;
-		padre = NULL;
-		hijos = NULL;
+	NodoArbol(T actual){
+		this->actual = actual;
 	}
 
 	~NodoArbol() {
 	}
 
-	DoublyLinkedList<T> * NodoArbol::getNodoArbol(){
+	T getActual(){
 		return actual;
 	}
 
-	DoublyLinkedList<T> * NodoArbol::getNodoArbolHijos(){
-		return hijos;
+	void agregarHijo(T hijo) {
+		hijos.addLast(new NodoArbol(hijo));
 	}
 
-	void NodoArbol::setHijos(DoublyLinkedList<T> * elementos){
-		hijos = new NodoArbol(elementos);
+	T get(int index){
+		IteradorLista<T> it = hijos.begin();
+		while (index-- > 0) {
+			it++;
+		}
+		return *it;
+	}
+
+	DoublyLinkedList<T> & getHijos(){
+		return hijos;
 	}
 
 };

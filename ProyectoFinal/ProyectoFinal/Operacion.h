@@ -17,7 +17,7 @@
 #include "OperadorElevacion.h"
 #include "OperadorFuncion.h"
 
-
+using namespace std;
 
 class Operacion : public Elemento {
 private:
@@ -45,8 +45,7 @@ public:
 	Operacion(string);
 	virtual ~Operacion();
 
-	template<class T>
-	NodoArbol <T, DoublyLinkedList> * descomponer();
+	NodoArbol<Elemento *> * descomponer();
 
 	string getValor();
 

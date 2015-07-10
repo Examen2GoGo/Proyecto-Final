@@ -5,12 +5,12 @@
 template<class T>
 class IteradorArbol {
 private:
-	NodoArbol<T,DoublyLinkedList> * anterior;
-	NodoArbol<T, DoublyLinkedList> * actual;
+	NodoArbol<T> * anterior;
+	NodoArbol<T> * actual;
 
 public:
 
-	IteradorArbol(NodoArbol<T, DoublyLinkedList> * actual) {
+	IteradorArbol(NodoArbol<T> * actual) {
 		this->anterior = actual;
 		this->actual = actual;
 	}

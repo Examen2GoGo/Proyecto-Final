@@ -13,11 +13,10 @@ Operacion::Operacion(string operacion) {
 Operacion::~Operacion() {
 }
 
-template<class T>
-NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
+NodoArbol<Elemento *> * Operacion::descomponer() {
 
-	NodoArbol <T, DoublyLinkedList> * resultado;
-	DoublyLinkedList <T> hijos;
+	NodoArbol <Elemento *> * resultado;
+	DoublyLinkedList <Elemento *> hijos;
 	DoublyLinkedList<T> resultadoOp;
 
 	Elemento * elementoResultado;
@@ -26,7 +25,7 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 	if (indice == -1) {
 		elementoResultado = new Operando(stod(operacion));
 		resultadoOp.addLast(elementoResultado);
-		resultado = new NodoArbol(resultadoOp);
+		resultado = new NodoArbol<Elemento *>(resultadoOp);
 		return resultado;
 	}
 	else if (indice == 0){
@@ -34,11 +33,11 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 		if (cen[0] == 'F'){
 			elementoResultado = new OperadorSen();
 			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<T>(resultadoOp);
 			string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
 			istringstream ss(der);
 			string token;
-			while (std::getline(ss, token, ',')) {
+			while (getline(ss, token, ',')) {
 
 				hijos.addLast(procesarStringHijo(token))
 			}
@@ -94,22 +93,22 @@ NodoArbol <T,DoublyLinkedList> * Operacion::descomponer() {
 		case '-':
 			elementoResultado = new OperadorResta();
 			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<T>(resultadoOp);
 			break;
 		case '/':
 			elementoResultado = new OperadorDivision();
 			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<T>(resultadoOp);
 			break;
 		case'*':
 			elementoResultado = new OperadorMultiplicacion();
 			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<T>(resultadoOp);
 			break;
 		case '^':
 			elementoResultado = new OperadorElevacion();
 			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<T>(resultadoOp);
 			break;
 		default:
 			resultado = NULL;

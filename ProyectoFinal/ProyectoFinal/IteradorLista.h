@@ -32,6 +32,10 @@ public:
 		return actual->actual;
 	}
 
+	void operator=(T & nuevoActual){
+		actual->actual = nuevoActual;
+	}
+
 	bool operator!=(IteradorLista<T> & otro) {
 		return this->actual != otro.actual;
 	}

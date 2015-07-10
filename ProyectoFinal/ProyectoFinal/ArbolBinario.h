@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "NodoArbol.h"
 #include "IteradorArbol.h"
+#include "IteradorLista.h"
 
 using namespace std;
 
@@ -19,11 +20,13 @@ class ArbolBinario {
 	template<class T>
 	friend ostream & operator<<(ostream &, ArbolBinario<T> &);
 
-public:
+private:
 	NodoArbol<T> * raiz;
 
-	ArbolBinario() {
-		raiz = NULL;
+public:
+
+	ArbolBinario(T operacion) {
+		raiz = new NodoArbol<T>(operacion);
 	}
 
 	virtual ~ArbolBinario() {
@@ -40,24 +43,22 @@ public:
 	}
 	*/
 
-	NodoArbol<T> * solucionar(Operacion * op) {
-		op = raiz;
+	T solucionar() {
 		descomponerRec(raiz);
 		solucionarRec(raiz);
-		return raiz;
+		return raiz->getActual();
 	}
 
 private:
 
-	void descomponerRec(NodoArbol <T, DoublyLinkedList> * actual) {
-		DoublyLinkedList<T> elementos = actual->getNodoArbol;
-		for (IteratorLista<T> it = elementos.begin(); it != elementos.end(); ++it){
+	void descomponerRec(NodoArbol<T> *& actual) {
+		for (IteratorLista<T> it = actual->getHijos().begin(); it != elementos.end(); ++it){
 			if (*it != NULL){
 				Operacion * operacion = dynamic_cast<Operacion *>(*it);
 				if (operacion != NULL) {
-					Elemento * tmp = elemento;
-					actual = operacion->descomponer();
-					delete tmp;
+					
+					// Este llamado modifica la lista
+					it = operacion->descomponer();
 
 					if (actual->hijos != NULL){
 						descomponerRec(hijos);
@@ -69,7 +70,7 @@ private:
 	}
 
 
-	void solucionarRec(Elemento * actual) {
+	void solucionarRec(NodoArbol<T> * actual) {
 		if (actual != NULL) {
 			if (actual->hijos != NULL){
 				solucionarRec(actual->hijos);
