@@ -52,21 +52,21 @@ public:
 private:
 
 	void descomponerRec(NodoArbol<T> *& actual) {
-		for (IteratorLista<T> it = actual->getHijos().begin(); it != elementos.end(); ++it){
-			if (*it != NULL){
+		DoublyLinkedList<T> elementos = actual->getHijos();
+		IteradorLista<T> it = elementos.begin();
+		while (it != elementos.end()) {
 				Operacion * operacion = dynamic_cast<Operacion *>(*it);
 				if (operacion != NULL) {
 					
 					// Este llamado modifica la lista
-					it = operacion->descomponer();
+					NodoArbol<Elemento*>(*it) = operacion->descomponer();
 
-					if (actual->hijos != NULL){
-						descomponerRec(hijos);
+					if (elementos != NULL){
+						descomponerRec(actual->hijos);
 					}
 
 				}
 			}
-		}
 	}
 
 

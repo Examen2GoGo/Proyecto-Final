@@ -1,6 +1,7 @@
 #pragma once
 #include "DoublyLinkedList.h"
 
+
 template <class T>
 class NodoArbol {
 
@@ -12,7 +13,7 @@ class NodoArbol {
 
 private:
 	T actual;
-	DoublyLinkedList<NodoArbol<T>> hijos;
+	DoublyLinkedList<T> hijos;
 
 public:
 	NodoArbol(T actual){
@@ -27,7 +28,7 @@ public:
 	}
 
 	void agregarHijo(T hijo) {
-		hijos.addLast(new NodoArbol(hijo));
+		hijos.addLast(hijo);
 	}
 
 	T get(int index){

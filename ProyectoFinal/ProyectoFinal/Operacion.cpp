@@ -16,34 +16,29 @@ Operacion::~Operacion() {
 NodoArbol<Elemento *> * Operacion::descomponer() {
 
 	NodoArbol <Elemento *> * resultado;
-	DoublyLinkedList <Elemento *> hijos;
-	DoublyLinkedList<T> resultadoOp;
-
 	Elemento * elementoResultado;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
 		elementoResultado = new Operando(stod(operacion));
-		resultadoOp.addLast(elementoResultado);
-		resultado = new NodoArbol<Elemento *>(resultadoOp);
+		resultado = new NodoArbol<Elemento *>(elementoResultado);
 		return resultado;
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
 		if (cen[0] == 'F'){
-			elementoResultado = new OperadorSen();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol<T>(resultadoOp);
+			elementoResultado = new OperadorFuncion();
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
 			istringstream ss(der);
 			string token;
 			while (getline(ss, token, ',')) {
 
-				hijos.addLast(procesarStringHijo(token))
+				resultado->agregarHijo(procesarStringHijo(token));
+				return resultado;
 			}
 		}
-		resultado->setHijos(hijos);
-		return resultado;
+	
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
@@ -52,31 +47,26 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 		switch (cen[0]) {
 		case 's':
 			elementoResultado = new OperadorSen();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case 'c':
 			elementoResultado = new OperadorCos();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case 't':
 			elementoResultado = new OperadorTan();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case 'l':
 			elementoResultado = new OperadorLn();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
-		
-		hijos.addLast(procesarStringHijo(der));
-		resultado->setHijos(hijos);
+
+	    resultado->agregarHijo(procesarStringHijo(der));
 		return resultado;
 	}
 	else{
@@ -87,39 +77,34 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 		switch (cen[0]) {
 		case '+':
 			elementoResultado = new OperadorSuma();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case '-':
 			elementoResultado = new OperadorResta();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol<T>(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case '/':
 			elementoResultado = new OperadorDivision();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol<T>(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case'*':
 			elementoResultado = new OperadorMultiplicacion();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol<T>(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		case '^':
 			elementoResultado = new OperadorElevacion();
-			resultadoOp.addLast(elementoResultado);
-			resultado = new NodoArbol<T>(resultadoOp);
+			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			break;
 		default:
 			resultado = NULL;
 			break;
 		}
 
-		hijos.addLast(procesarStringHijo(izq));
-		hijos.addLast(procesarStringHijo(der));
-		resultado->setHijos(hijos);
+		resultado->agregarHijo(procesarStringHijo(izq));
+		resultado->agregarHijo(procesarStringHijo(der));	
+		return resultado;
 	}
-	return resultado;
+
 }
 
 void Operacion::eliminarEspaciosEnBlanco() {

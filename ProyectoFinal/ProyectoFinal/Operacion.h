@@ -16,6 +16,7 @@
 #include "OperadorLn.h"
 #include "OperadorElevacion.h"
 #include "OperadorFuncion.h"
+#include <sstream>
 
 using namespace std;
 
