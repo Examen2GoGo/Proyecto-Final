@@ -36,10 +36,10 @@ public:
 	}
 	/*
 	void destruirRec(NodoArbol<T, DoublyLinkedList> * nodo) {
-		if (nodo->actual != NULL) {
-			destruirRec(nodo->hIzq);
-			delete nodo;
-		}
+	if (nodo->actual != NULL) {
+	destruirRec(nodo->hIzq);
+	delete nodo;
+	}
 	}
 	*/
 
@@ -53,61 +53,75 @@ private:
 
 	void descomponerRec(NodoArbol<T> *& actual) {
 		DoublyLinkedList<T> elementos = actual->getHijos();
+		NodoArbol<T> * raizNodo;
 		IteradorLista<T> it = elementos.begin();
 		while (it != elementos.end()) {
-				Operacion * operacion = dynamic_cast<Operacion *>(*it);
-				if (operacion != NULL) {
-					
-					// Este llamado modifica la lista
-					NodoArbol<Elemento*>(*it) = operacion->descomponer();
+			Operacion * operacion = dynamic_cast<Operacion *>(*it++);
+			if (operacion != NULL) {
 
-					if (elementos != NULL){
-						descomponerRec(actual->hijos);
+				// Este llamado modifica la lista
+				NodoArbol<Elemento*>(*it) = operacion->descomponer();
+
+				if (elementos.sizeLinkedList() != NULL){
+					IteradorLista<T> it2 = elementos.begin();
+					while (it2 != elementos.end()) {
+						Operacion * operacion = dynamic_cast<Operacion *>(*it2++);
+						raizNodo = new NodoArbol<T>(operacion);
+						descomponerRec(raizNodo);
 					}
-
 				}
+
 			}
+		}
 	}
 
 
 	void solucionarRec(NodoArbol<T> * actual) {
-		if (actual != NULL) {
-			if (actual->hijos != NULL){
-				solucionarRec(actual->hijos);
+		DoublyLinkedList<T> elementos = actual->getHijos();
+		NodoArbol<T> * raizNodo;
+
+		if (actual->getActual() != NULL) {
+			if (elementos.sizeLinkedList() != NULL){
+				IteradorLista<T> it = elementos.begin();
+				while (it != elementos.end()) {
+					Operacion * operacion = dynamic_cast<Operacion *>(*it++);
+					raizNodo = new NodoArbol<T>(operacion);
+					solucionarRec(raizNodo);
+				}
+				DoublyLinkedList<T> operandos = actual->getHijos();
+				Operador * op = dynamic_cast<Operador*>(actual->getActual());
+				Elemento * solucion = op->operar(operandos);
+				DoublyLinkedList<T> listaSolucion;
+				listasolucion.addLast(solucion);
+				delete actual;
+				actual = new NodoArbol(solucion);
 			}
-			DoublyLinkedList<T> operandos = actual->hijos->getNodoArbolHijos();
-			Operador * op = dynamic_cast<Operador*>(actual->getNodoArbol()->getFirstElement());
-			Elemento * solucion = op->operar(operandos);
-			DoublyLinkedList<T> listaSolucion;
-			listasolucion.addLast(solucion);
-			delete actual;
-			actual = new NodoArbol(listaSolucion);
 		}
 	}
 
-	/*
-	void imprimir(NodoArbol<T, DoublyLinkedList>* nodo, ostream& out, int profundidad) {
-	if (nodo->hIzq != NULL) {
-	imprimir(nodo->hIzq, out, profundidad + 1);
-	}
-	for (int i = 0; i < profundidad; ++i) {
-	cout << "\t";
-	}
-	out << nodo->actual << endl;
-	if (nodo->hDer != NULL) {
-	imprimir(nodo->hDer, out, profundidad + 1);
-	}
-	}*/
+		/*
+		void imprimir(NodoArbol<T, DoublyLinkedList>* nodo, ostream& out, int profundidad) {
+		if (nodo->hIzq != NULL) {
+		imprimir(nodo->hIzq, out, profundidad + 1);
+		}
+		for (int i = 0; i < profundidad; ++i) {
+		cout << "\t";
+		}
+		out << nodo->actual << endl;
+		if (nodo->hDer != NULL) {
+		imprimir(nodo->hDer, out, profundidad + 1);
+		}
+		}*/
 
 
-	IteradorArbol<T> begin() {
-		return IteradorArbol<T>(raiz);
-	}
+		IteradorArbol<T> begin() {
+			return IteradorArbol<T>(raiz);
+		}
 
-	IteradorArbol<T> end() {
-		return IteradorArbol<T>(NULL);
-	}
-};
+		IteradorArbol<T> end() {
+			return IteradorArbol<T>(NULL);
+		}
+	};
 
 template<class T>
 ostream & operator<<(ostream & out, ArbolBinario<T> & a) {
