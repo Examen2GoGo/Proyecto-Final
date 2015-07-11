@@ -23,11 +23,12 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		Operacion * op = *(itA++);
 		ArbolBinario<Operacion *> arbol(op);
-
 		cout << *op << "-> ";
 		arbol.solucionar();
-
+		//resultados.addLast(arbol.getRaiz()->getActual());
 	}
+
+	
 	cout << endl;
 
 	system("pause");

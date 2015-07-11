@@ -24,6 +24,12 @@ private:
 	NodoArbol<T> * raiz;
 
 public:
+	
+	NodoArbol<T> * getRaiz(){
+		return this->raiz->actual;
+	}
+	
+
 
 	ArbolBinario(T operacion) {
 		raiz = new NodoArbol<T>(operacion);
@@ -52,15 +58,14 @@ public:
 private:
 
 	void descomponerRec(NodoArbol<T> *& actual) {
-		DoublyLinkedList<T> elementos = actual->getHijos();
+		DoublyLinkedList<T> elementos = actual->getHijos(); // agarro la lista de los hijos
 		NodoArbol<T> * raizNodo;
-		IteradorLista<T> it = elementos.begin();
+		IteradorLista<T> it = elementos.begin(); //recorro la lista de forma fácil
 		while (it != elementos.end()) {
 			Operacion * operacion = dynamic_cast<Operacion *>(*it++);
 			if (operacion != NULL) {
-
 				// Este llamado modifica la lista
-				NodoArbol<Elemento*>(*it) = operacion->descomponer();
+				//NodoArbol<Elemento*>(*it) = operacion->descomponer();
 
 				if (elementos.sizeLinkedList() != NULL){
 					IteradorLista<T> it2 = elementos.begin();
@@ -90,11 +95,11 @@ private:
 				}
 				DoublyLinkedList<T> operandos = actual->getHijos();
 				Operador * op = dynamic_cast<Operador*>(actual->getActual());
-				Elemento * solucion = op->operar(operandos);
+				//Elemento * solucion = op->operar(operandos);
 				DoublyLinkedList<T> listaSolucion;
-				listasolucion.addLast(solucion);
+				//listasolucion.addLast(solucion);
 				delete actual;
-				actual = new NodoArbol(solucion);
+				//actual = new NodoArbol(solucion);
 			}
 		}
 	}

@@ -37,8 +37,7 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 				resultado->agregarHijo(procesarStringHijo(token));
 				return resultado;
 			}
-		}
-	
+		}	
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);

@@ -40,7 +40,7 @@ public:
 	}
 
 	DoublyLinkedList<T> & getHijos(){
-		return hijos;
+		return this->hijos;
 	}
 
 };
