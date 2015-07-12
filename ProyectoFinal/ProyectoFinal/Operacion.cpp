@@ -16,7 +16,7 @@ Operacion::~Operacion() {
 NodoArbol<Elemento *> * Operacion::descomponer() {
 
 	NodoArbol <Elemento *> * resultado;
-	Elemento * elementoResultado;
+	Elemento * elementoResultado = NULL;
 	int indice = indiceMenorPrecedencia(operacion);
 
 	if (indice == -1) {
