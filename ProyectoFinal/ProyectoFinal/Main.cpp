@@ -11,26 +11,30 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	ifstream file("Operaciones.txt");
 
 	DoublyLinkedList<Operacion *> operaciones;
-	DoublyLinkedList<Operando *> resultados;
+	DoublyLinkedList<Elemento *> resultados;
 
-	string str;
+	string str, strResultados = "";
 	while (getline(file, str)){
 		operaciones.addLast(new Operacion(str));
 	}
 
 	IteradorLista<Operacion *> itA = operaciones.begin();
 	while (itA != operaciones.end()) {
-
 		Operacion * op = *(itA++);
+		strResultados += op->getValor() + "= ";
 		ArbolBinario<Operacion *> arbol(op);
-		cout << *op << "-> ";
 		arbol.solucionar();
-		//resultados.addLast(arbol.getRaiz()->getActual());
+		resultados.addLast(arbol.getRaiz()->getActual());
+		stringstream sStr;
+		sStr << arbol.getRaiz()->getActual()->getValor();
+		strResultados += sStr.str() + "\n";
+		cout << *op << " = " << sStr.str() << endl;
 	}
 
+	ofstream out("resultados.txt");
+	out << strResultados;
+	out.close();
 	
-	cout << endl;
-
 	system("pause");
 	return 0;
 }

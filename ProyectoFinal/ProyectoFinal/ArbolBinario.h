@@ -24,12 +24,6 @@ private:
 	NodoArbol<T> * raiz;
 
 public:
-	
-	NodoArbol<T> * getRaiz(){
-		return this->raiz->actual;
-	}
-	
-
 
 	ArbolBinario(T operacion) {
 		raiz = new NodoArbol<T>(operacion);
@@ -40,6 +34,11 @@ public:
 			//destruirRec(raiz);
 		}
 	}
+	
+	NodoArbol<T> * getRaiz(){
+		return this->raiz;
+	}
+
 	/*
 	void destruirRec(NodoArbol<T, DoublyLinkedList> * nodo) {
 	if (nodo->actual != NULL) {
@@ -51,13 +50,18 @@ public:
 
 	T solucionar() {
 		descomponerRec(raiz);
-		solucionarRec(raiz);
+	//	solucionarRec(raiz);
 		return raiz->getActual();
 	}
 
 private:
 
 	void descomponerRec(NodoArbol<T> *& actual) {
+		Operacion * op = actual->getActual();
+		actual = op->descomponer();
+
+		cout << "";
+		/*
 		DoublyLinkedList<T> elementos = actual->getHijos(); // agarro la lista de los hijos
 		NodoArbol<T> * raizNodo;
 		IteradorLista<T> it = elementos.begin(); //recorro la lista de forma fácil
@@ -77,7 +81,7 @@ private:
 				}
 
 			}
-		}
+		}*/
 	}
 
 
