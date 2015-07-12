@@ -57,10 +57,16 @@ public:
 private:
 
 	void descomponerRec(NodoArbol<T> *& actual) {
-		Operacion * op = actual->getActual();
-		actual = op->descomponer();
+		Elemento * Operacion1 = actual->getActual();
+		Operacion * operacion = dynamic_cast<Operacion *>(Operacion1);
 
-		cout << "";
+		if (operacion != NULL) {
+
+			// Este llamado modifica la lista
+			NodoArbol<T> * temp = actual;
+			actual = operacion->descomponer();
+			delete temp;
+
 		/*
 		DoublyLinkedList<T> elementos = actual->getHijos(); // agarro la lista de los hijos
 		NodoArbol<T> * raizNodo;
