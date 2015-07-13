@@ -18,19 +18,15 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 	NodoArbol <Elemento *> * resultado;
 	Elemento * elementoResultado = NULL;
 	int indice = indiceMenorPrecedencia(operacion);
+	string cen = operacion.substr(indice, 1);
 
 	if (indice == -1) {
 		elementoResultado = new Operando(stod(operacion));
 		resultado = new NodoArbol<Elemento *>(elementoResultado);
 		return resultado;
 	}
-	//*********************
-	// Cambiar
-
-	//*********************
-	else if (indice == 8){
-		string cen = operacion.substr(indice, 1);
-		if (cen[0] == 'F'){
+	else if (indice == 0 && cen == "F"){
+		//string cen = operacion.substr(indice, 1);
 			elementoResultado = new OperadorFuncion();
 			resultado = new NodoArbol<Elemento *>(elementoResultado);
 			string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
@@ -40,7 +36,6 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 
 				resultado->agregarHijo(procesarStringHijo(token));
 				return resultado;
-			}
 		}	
 	}
 	else if (indice == 0){
