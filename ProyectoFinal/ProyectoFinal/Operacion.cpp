@@ -24,7 +24,11 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 		resultado = new NodoArbol<Elemento *>(elementoResultado);
 		return resultado;
 	}
-	else if (indice == 0){
+	//*********************
+	// Cambiar
+
+	//*********************
+	else if (indice == 8){
 		string cen = operacion.substr(indice, 1);
 		if (cen[0] == 'F'){
 			elementoResultado = new OperadorFuncion();
@@ -193,10 +197,6 @@ string Operacion::getValor() {
 
 void Operacion::imprimir(ostream & out) {
 	out << operacion;
-}
-
-Elemento * Operacion::clonar() {
-	return new Operacion(this->operacion);
 }
 
 

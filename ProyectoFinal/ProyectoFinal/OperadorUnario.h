@@ -13,7 +13,6 @@ protected:
 public:
 
 	virtual ~OperadorUnario() {};
-	virtual Elemento * operar(DoublyLinkedList<Elemento>&) = 0;
+	virtual Elemento * operar(DoublyLinkedList<Elemento *>&) = 0;
 
-	virtual Elemento * clonar() = 0;
 };

@@ -49,6 +49,5 @@ public:
 
 	string getValor();
 
-	virtual Elemento * clonar();
 };
 

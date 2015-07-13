@@ -53,70 +53,58 @@ public:
 	NodoArbol<Elemento *> solucionar() {
 		descomponerRec(raiz);
 		solucionarRec(raiz);
-		return NULL;  raiz;
+		return raiz->actual;
 	}
 
 private:
 
-	void descomponerRec(NodoArbol<Elemento *> * actual) {
+	void descomponerRec(NodoArbol<Elemento *> *& actual) {
 		Operacion * operacion = dynamic_cast<Operacion *>(actual->getActual());
 		if (operacion != NULL) {
 			// Este llamado modifica la lista
-			//NodoArbol<Elemento *> * temp = actual;
+			NodoArbol<Elemento *> * temp = actual;
 			actual = operacion->descomponer();
-			//delete temp;
+			delete temp;
 
 			DoublyLinkedList<Elemento *> elementos = actual->getHijos();
 			if (elementos.sizeLinkedList() != 0){
 				IteradorLista<Elemento *> it = elementos.begin();
 				while (it != elementos.end()) {
-					descomponerRec(new NodoArbol<Elemento *>(*it++));
+					NodoArbol<Elemento *> * temp2 = new NodoArbol<Elemento *>(*it++);
+					descomponerRec(temp2);
+					//******
+					delete temp2;// hay que arreglar solucionar esto en solucionarRec también
+					//******
 				}
 			}
 		}
 	}
-	/*
-	; // agarro la lista de los hijos
-	NodoArbol<T> * raizNodo;
-	IteradorLista<T> it = elementos.begin(); //recorro la lista de forma fácil
-	while (it != elementos.end()) {
-	Operacion * operacion = dynamic_cast<Operacion *>(*it++);
-	if (operacion != NULL) {
-	// Este llamado modifica la lista
-	//NodoArbol<Elemento*>(*it) = operacion->descomponer();
-
-
-
-	}
-	}*/
-
 
 
 	void solucionarRec(NodoArbol<Elemento *> *& actual) {
-		/*
-		DoublyLinkedList<T> elementos = actual->getHijos();
-		NodoArbol<T> * raizNodo;
-
-		if (actual->getActual() != NULL) {
-		if (elementos.sizeLinkedList() != NULL){
-		IteradorLista<T> it = elementos.begin();
-		while (it != elementos.end()) {
-		Operacion * operacion = dynamic_cast<Operacion *>(*it++);
-		raizNodo = new NodoArbol<T>(operacion);
-		solucionarRec(raizNodo);
+		Operador * operacion = dynamic_cast<Operador *>(actual->getActual());
+		if (operacion != NULL) {
+			DoublyLinkedList<Elemento *> elementos = actual->getHijos();
+			if (elementos.sizeLinkedList() != 0){
+				IteradorLista<Elemento *> it = elementos.begin();
+				while (it != elementos.end()) {
+					NodoArbol<Elemento *> * temp2 = new NodoArbol<Elemento *>(*it++);
+					solucionarRec(temp2);
+					//*****
+					delete temp2; // revisar en descomponerRec
+					//****
+				}
+				DoublyLinkedList<Elemento *> operandos = actual->getHijos();				
+				Operador * op = dynamic_cast<Operador*>(actual->getActual());
+				Elemento * solucion = op->operar(operandos);
+				delete actual;
+				actual = new NodoArbol<Elemento *>(solucion);
+			}
 		}
-		DoublyLinkedList<T> operandos = actual->getHijos();
-		Operador * op = dynamic_cast<Operador*>(actual->getActual());
-		//Elemento * solucion = op->operar(operandos);
-		DoublyLinkedList<T> listaSolucion;
-		//listasolucion.addLast(solucion);
-		delete actual;
-		//actual = new NodoArbol(solucion);
-		}
-		}
-		}*/
 
 	}
+
+
 
 
 	void imprimir(NodoArbol<Elemento *>* nodo, ostream& out, int profundidad) {

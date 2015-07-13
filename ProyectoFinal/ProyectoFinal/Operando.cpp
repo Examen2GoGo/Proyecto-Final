@@ -17,7 +17,3 @@ double Operando::getValor() {
 void Operando::imprimir(ostream & out) {
 	out << valor;
 }
-
-Elemento * Operando::clonar() {
-	return new Operando(valor);
-}

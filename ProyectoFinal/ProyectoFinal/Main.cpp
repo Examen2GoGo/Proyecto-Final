@@ -26,7 +26,8 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		arbol.solucionar();
 		resultados.addLast(arbol.getRaiz()->getActual());
 		stringstream sStr;
-//		sStr << arbol.getRaiz()->getActual()->getValor();
+		Operando * a = dynamic_cast<Operando *>(arbol.getRaiz()->getActual());
+		sStr << a->getValor();
 		strResultados += sStr.str() + "\n";
 		cout << *op << " = " << sStr.str() << endl;
 	}

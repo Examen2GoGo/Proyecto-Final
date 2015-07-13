@@ -76,13 +76,15 @@ public:
 	}
 
 	int sizeLinkedList(){
-		int size = 1;
+		int size = 0;
+		if (head != NULL){
+			size++;
+		}
 		NodoLista<T> * temp = head;
 		while (temp->next != NULL){
 			temp = temp->next;
 			size++;
 		}
-		//delete temp;
 		return size;
 	}
 
@@ -136,7 +138,7 @@ public:
 			out << nodo->actual;
 			if (nodo->next != NULL){
 				out << "->";
-			}			
+			}
 			imprimir(nodo->next, out);
 		}
 	}

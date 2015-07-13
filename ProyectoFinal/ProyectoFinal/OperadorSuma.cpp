@@ -11,15 +11,9 @@ void OperadorSuma::imprimir(ostream & out) {
 	out << '+' << endl;
 }
 
-Elemento * OperadorSuma::operar(DoublyLinkedList<Elemento>& valores) {
-	//Elemento * a = valores.primerElemento()->obtenerDatos();
-	//Elemento * b = valores.primerElemento()->siguienteElemento()->obtenerDatos();
-	//Operando * izq = dynamic_cast<Operando *>(a);
-	//Operando * der = dynamic_cast<Operando *>(b);
-	//return new Operando(izq->getValor() + der->getValor());
-	return new Operando(0);
-}
-
-Elemento * OperadorSuma::clonar() {
-	return new OperadorSuma();
+Elemento * OperadorSuma::operar(DoublyLinkedList<Elemento *>& valores) {
+	IteradorLista<Elemento *> it = valores.begin();
+	Operando * a = dynamic_cast<Operando *>(*it);
+	Operando * b = dynamic_cast<Operando *>(*++it);
+	return new Operando(a->getValor() + b->getValor());
 }

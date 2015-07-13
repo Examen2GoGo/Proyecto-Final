@@ -11,7 +11,6 @@ protected:
 
 public:
 	virtual ~Elemento() {};
-	virtual Elemento * clonar() = 0;
 };
 
 ostream& operator<<(ostream &, Elemento &);

@@ -12,15 +12,9 @@ void OperadorCos::imprimir(ostream & out) {
 	out << "c" << endl;
 }
 
-Elemento * OperadorCos::operar(DoublyLinkedList<Elemento>& valores) {
-
-	 /*Elemento * a = valores.getFirstElement();
-	 Operando * izq = dynamic_cast<Operando *>(a);
-	return new Operando(cos(izq->getValor()));*/
-	return new Operando(0);
+Elemento * OperadorCos::operar(DoublyLinkedList<Elemento *>& valores) {	
+	IteradorLista<Elemento *> it = valores.begin();
+	Operando * a = dynamic_cast<Operando *>(*it);
+	return new Operando(tan(a->getValor()));
 }
 
-
-Elemento * OperadorCos::clonar() {
-	return new OperadorCos();
-}

@@ -17,5 +17,4 @@ public:
 
 	double getValor();
 
-	virtual Elemento * clonar();
 };

@@ -12,7 +12,6 @@ public:
 	OperadorTan();
 	~OperadorTan();
 
-	virtual Elemento * operar(DoublyLinkedList<Elemento>&);
+	virtual Elemento * operar(DoublyLinkedList<Elemento *>&);
 
-	virtual Elemento * clonar();
 };

@@ -12,9 +12,8 @@ public:
 	OperadorFuncion();
 	~OperadorFuncion();
 
-	virtual Elemento * operar(DoublyLinkedList<Elemento>&);
+	virtual Elemento * operar(DoublyLinkedList<Elemento *>&);
 
-	virtual Elemento * clonar();
 };
 
 
