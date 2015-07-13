@@ -26,7 +26,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		arbol.solucionar();
 		resultados.addLast(arbol.getRaiz()->getActual());
 		stringstream sStr;
-		sStr << arbol.getRaiz()->getActual()->getValor();
+//		sStr << arbol.getRaiz()->getActual()->getValor();
 		strResultados += sStr.str() + "\n";
 		cout << *op << " = " << sStr.str() << endl;
 	}
