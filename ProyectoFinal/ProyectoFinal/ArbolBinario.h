@@ -63,23 +63,20 @@ private:
 		NodoArbol<Elemento *> * resultado = actual;
 		Operacion * operacion = dynamic_cast<Operacion *>(actual->getActual());
 		if (operacion != NULL) {
-			// Este llamado modifica la lista
 			
 			NodoArbol<Elemento *> * temp = actual;
 			resultado = operacion->descomponer();
 			delete temp;
 
 			DoublyLinkedList<Elemento *> listaTemporal;
-
 			DoublyLinkedList<Elemento *> elementos = resultado->getHijos();
+
 			if (elementos.sizeLinkedList() != 0){
 				IteradorLista<Elemento *> it = elementos.begin();
 				while (it != elementos.end()) {
 					NodoArbol<Elemento *> * temp2 = new NodoArbol<Elemento *>(*it++);
-					listaTemporal.addLast((descomponerRec(temp2))->actual);
-					//******
-					delete temp2;// hay que arreglar solucionar esto en solucionarRec también
-					//******
+					listaTemporal.addLast(descomponerRec(temp2)->actual);
+					//delete temp2;
 				}
 			}
 			resultado->setHijos(listaTemporal);
