@@ -15,7 +15,7 @@ Operacion::~Operacion() {
 
 NodoArbol<Elemento *> * Operacion::descomponer() {
 
-	NodoArbol <Elemento *> * resultado;
+	NodoArbol <Elemento *> * resultado = NULL;
 	Elemento * elementoResultado = NULL;
 	int indice = indiceMenorPrecedencia(operacion);
 	string cen = operacion.substr(indice, 1);

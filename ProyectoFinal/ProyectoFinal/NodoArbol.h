@@ -31,6 +31,10 @@ public:
 		hijos.addLast(hijo);
 	}
 
+	void setHijos(DoublyLinkedList<T> elementos) {
+		this->hijos = elementos;
+	}
+
 	T get(int index){
 		IteradorLista<T> it = hijos.begin();
 		while (index-- > 0) {

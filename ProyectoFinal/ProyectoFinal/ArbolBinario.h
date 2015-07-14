@@ -50,46 +50,56 @@ public:
 	}
 
 
-	NodoArbol<Elemento *> solucionar() {
-		descomponerRec(raiz);
-		solucionarRec(raiz);
+	Elemento * solucionar() {
+		raiz = descomponerRec(raiz);
+		raiz = solucionarRec(raiz);
 		return raiz->actual;
 	}
 
+
 private:
 
-	void descomponerRec(NodoArbol<Elemento *> *& actual) {
+	NodoArbol<Elemento *> *  descomponerRec(NodoArbol<Elemento *> * actual) {
+		NodoArbol<Elemento *> * resultado = actual;
 		Operacion * operacion = dynamic_cast<Operacion *>(actual->getActual());
 		if (operacion != NULL) {
 			// Este llamado modifica la lista
+			
 			NodoArbol<Elemento *> * temp = actual;
-			actual = operacion->descomponer();
+			resultado = operacion->descomponer();
 			delete temp;
 
-			DoublyLinkedList<Elemento *> elementos = actual->getHijos();
+			DoublyLinkedList<Elemento *> listaTemporal;
+
+			DoublyLinkedList<Elemento *> elementos = resultado->getHijos();
 			if (elementos.sizeLinkedList() != 0){
 				IteradorLista<Elemento *> it = elementos.begin();
 				while (it != elementos.end()) {
 					NodoArbol<Elemento *> * temp2 = new NodoArbol<Elemento *>(*it++);
-					descomponerRec(temp2);
+					listaTemporal.addLast((descomponerRec(temp2))->actual);
 					//******
 					delete temp2;// hay que arreglar solucionar esto en solucionarRec también
 					//******
 				}
 			}
+			resultado->setHijos(listaTemporal);
 		}
+		return resultado;
 	}
 
 
-	void solucionarRec(NodoArbol<Elemento *> *& actual) {
+	NodoArbol<Elemento *> * solucionarRec(NodoArbol<Elemento *> * actual) {
+		NodoArbol<Elemento *> * resultado = actual;
 		Operador * operacion = dynamic_cast<Operador *>(actual->getActual());
 		if (operacion != NULL) {
-			DoublyLinkedList<Elemento *> elementos = actual->getHijos();
+
+			DoublyLinkedList<Elemento *> listaTemporal;
+			DoublyLinkedList<Elemento *> elementos = resultado->getHijos();
 			if (elementos.sizeLinkedList() != 0){
 				IteradorLista<Elemento *> it = elementos.begin();
 				while (it != elementos.end()) {
 					NodoArbol<Elemento *> * temp2 = new NodoArbol<Elemento *>(*it++);
-					solucionarRec(temp2);
+					listaTemporal.addLast(solucionarRec(temp2)->getActual());
 					//*****
 					delete temp2; // revisar en descomponerRec
 					//****
@@ -98,10 +108,11 @@ private:
 				Operador * op = dynamic_cast<Operador*>(actual->getActual());
 				Elemento * solucion = op->operar(operandos);
 				delete actual;
-				actual = new NodoArbol<Elemento *>(solucion);
+				resultado = new NodoArbol<Elemento *>(solucion);
 			}
+			resultado->setHijos(listaTemporal);
 		}
-
+		return resultado;
 	}
 
 

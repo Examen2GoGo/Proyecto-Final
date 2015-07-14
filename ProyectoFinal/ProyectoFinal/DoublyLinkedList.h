@@ -81,6 +81,7 @@ public:
 			size++;
 		}
 		NodoLista<T> * temp = head;
+
 		while (temp->next != NULL){
 			temp = temp->next;
 			size++;
