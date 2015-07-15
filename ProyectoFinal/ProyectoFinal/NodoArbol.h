@@ -13,6 +13,7 @@ class NodoArbol {
 
 private:
 	T actual;
+	NodoArbol<T>* padre;
 	DoublyLinkedList<T> hijos;
 
 public:

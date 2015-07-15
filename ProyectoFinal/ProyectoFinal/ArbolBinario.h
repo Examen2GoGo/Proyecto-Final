@@ -56,6 +56,13 @@ public:
 		return raiz->actual;
 	}
 
+	IteradorArbol<T> begin() {
+		return IteradorArbol<T>(raiz);
+	}
+
+	IteradorArbol<T> end() {
+		return IteradorArbol<T>(NULL);
+	}
 
 private:
 
@@ -130,14 +137,6 @@ private:
 		*/
 	}
 
-
-	IteradorArbol<T> begin() {
-		return IteradorArbol<T>(raiz);
-	}
-
-	IteradorArbol<T> end() {
-		return IteradorArbol<T>(NULL);
-	}
 };
 
 

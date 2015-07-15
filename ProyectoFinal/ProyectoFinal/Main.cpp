@@ -30,6 +30,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		sStr << a->getValor();
 		strResultados += sStr.str() + "\n";
 		cout << *op << " = " << sStr.str() << endl;
+		
 	}
 
 	ofstream out("resultados.txt");

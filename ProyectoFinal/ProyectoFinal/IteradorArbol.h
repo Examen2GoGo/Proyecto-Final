@@ -24,20 +24,18 @@ public:
 		while (continuar && actual != 0) {
 			continuar = false;
 			NodoArbol<T> * tmp = actual;
-			if (actual != NULL && anterior == actual->hIzq) {
-				if (actual->hDer != NULL) {
-					actual = actual->hDer;
+			if (actual != NULL && anterior == actual->hijos) {
+				if (actual->hijos != NULL) {
+					actual = actual->hijos;
 				} else {
 					actual = actual->padre;
 					continuar = true;
 				}
-			} else if (actual != NULL && anterior == actual->hDer) {
+			} else if (actual != NULL && anterior == actual->hijos) {
 				actual = actual->padre;
 				continuar = true;
-			} else if (actual->hIzq != NULL) {
-				actual = actual->hIzq;
-			} else if (actual->hDer != NULL) {
-				actual = actual->hDer;
+			} else if (actual->hijos != NULL) {
+				actual = actual->hijos;
 			} else {
 				actual = actual->padre;
 				continuar = true;
