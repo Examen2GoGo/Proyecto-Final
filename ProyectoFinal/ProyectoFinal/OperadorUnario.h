@@ -8,7 +8,7 @@
 class OperadorUnario :public Operador {
 
 protected:
-	virtual void imprimir(ostream&)= 0;
+	virtual void imprimir(ostream&) = 0;
 
 public:
 

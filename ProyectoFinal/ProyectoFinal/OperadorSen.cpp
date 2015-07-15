@@ -2,13 +2,13 @@
 #include "OperadorSen.h"
 
 
-OperadorSen ::OperadorSen () {
+OperadorSen::OperadorSen() {
 }
 
-OperadorSen ::~OperadorSen () {
+OperadorSen ::~OperadorSen() {
 }
 
-void OperadorSen ::imprimir(ostream & out) {
+void OperadorSen::imprimir(ostream & out) {
 	out << "s" << endl;
 }
 

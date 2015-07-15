@@ -70,7 +70,7 @@ private:
 		NodoArbol<Elemento *> * resultado = actual;
 		Operacion * operacion = dynamic_cast<Operacion *>(actual->getActual());
 		if (operacion != NULL) {
-			
+
 			NodoArbol<Elemento *> * temp = actual;
 			resultado = operacion->descomponer();
 			delete temp;
@@ -108,7 +108,7 @@ private:
 					delete temp2; // revisar en descomponerRec
 					//****
 				}
-				DoublyLinkedList<Elemento *> operandos = actual->getHijos();				
+				DoublyLinkedList<Elemento *> operandos = actual->getHijos();
 				Operador * op = dynamic_cast<Operador*>(actual->getActual());
 				Elemento * solucion = op->operar(operandos);
 				delete actual;

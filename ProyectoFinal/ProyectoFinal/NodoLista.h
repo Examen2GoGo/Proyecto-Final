@@ -5,13 +5,13 @@ class NodoLista {
 
 	template <class T>
 	friend class DoublyLinkedList;
-	
+
 	template <class T>
 	friend class IteradorLista;
-	
+
 	template <class T>
 	friend class IteradorInverso;
-	
+
 private:
 	T actual;
 	NodoLista<T> *next, *prev;

@@ -27,16 +27,20 @@ public:
 			if (actual != NULL && anterior == actual->hijos) {
 				if (actual->hijos != NULL) {
 					actual = actual->hijos;
-				} else {
+				}
+				else {
 					actual = actual->padre;
 					continuar = true;
 				}
-			} else if (actual != NULL && anterior == actual->hijos) {
+			}
+			else if (actual != NULL && anterior == actual->hijos) {
 				actual = actual->padre;
 				continuar = true;
-			} else if (actual->hijos != NULL) {
+			}
+			else if (actual->hijos != NULL) {
 				actual = actual->hijos;
-			} else {
+			}
+			else {
 				actual = actual->padre;
 				continuar = true;
 			}

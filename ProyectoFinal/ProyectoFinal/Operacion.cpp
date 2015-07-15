@@ -27,16 +27,16 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 	}
 	else if (indice == 0 && cen == "F"){
 		//string cen = operacion.substr(indice, 1);
-			elementoResultado = new OperadorFuncion();
-			resultado = new NodoArbol<Elemento *>(elementoResultado);
-			string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
-			istringstream ss(der);
-			string token;
-			while (getline(ss, token, ',')) {
+		elementoResultado = new OperadorFuncion();
+		resultado = new NodoArbol<Elemento *>(elementoResultado);
+		string der = operacion.substr(indice + 2, operacion.length() - indice - 2);
+		istringstream ss(der);
+		string token;
+		while (getline(ss, token, ',')) {
 
-				resultado->agregarHijo(procesarStringHijo(token));
-				return resultado;
-		}	
+			resultado->agregarHijo(procesarStringHijo(token));
+			return resultado;
+		}
 	}
 	else if (indice == 0){
 		string cen = operacion.substr(indice, 1);
@@ -64,7 +64,7 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 			break;
 		}
 
-	    resultado->agregarHijo(procesarStringHijo(der));
+		resultado->agregarHijo(procesarStringHijo(der));
 		return resultado;
 	}
 	else{
@@ -99,7 +99,7 @@ NodoArbol<Elemento *> * Operacion::descomponer() {
 		}
 
 		resultado->agregarHijo(procesarStringHijo(izq));
-		resultado->agregarHijo(procesarStringHijo(der));	
+		resultado->agregarHijo(procesarStringHijo(der));
 		return resultado;
 	}
 
@@ -162,10 +162,10 @@ int Operacion::indiceMenorPrecedencia(string string) {
 			}
 			/*if (c == LEFT_BRACKET) {
 				brackets++;
-			}
-			else if (c == RIGHT_BRACKET) {
+				}
+				else if (c == RIGHT_BRACKET) {
 				brackets--;
-			}*/
+				}*/
 			else if (parentesis == 0 && c == OPERADORES[k]) {
 				index = i;
 			}

@@ -30,7 +30,7 @@ private:
 	static const char LEFT_BRACKET = '[';
 	string operacion;
 
-	
+
 	DoublyLinkedList<int> * hijosArbol;
 
 	virtual void imprimir(ostream&);
